@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
   /* --------------------------------------------------------------------------
-   * 1. PROJECT DATA STRUCTURE (MULTI-IMAGE SHOWCASE DATA)
+   * 1. PROJECT DATA STRUCTURE (FULL 5-IMAGE SHOWCASE PER PROJECT)
    * -------------------------------------------------------------------------- */
   const projectsData = {
     'project-1': {
@@ -24,7 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
       images: [
         '../images/gallery-1.jpg',
         '../images/gallery-1-2.jpg',
-        '../images/gallery-1-3.jpg'
+        '../images/gallery-1-3.jpg',
+        '../images/gallery-1-4.jpg',
+        '../images/gallery-1-5.jpg'
       ]
     },
     'project-2': {
@@ -41,7 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
       images: [
         '../images/gallery-2.jpg',
         '../images/gallery-2-2.jpg',
-        '../images/gallery-2-3.jpg'
+        '../images/gallery-2-3.jpg',
+        '../images/gallery-2-4.jpg',
+        '../images/gallery-2-5.jpg'
       ]
     },
     'project-3': {
@@ -57,7 +61,10 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       images: [
         '../images/gallery-3.jpg',
-        '../images/gallery-3-2.jpg'
+        '../images/gallery-3-2.jpg',
+        '../images/gallery-3-3.jpg',
+        '../images/gallery-3-4.jpg',
+        '../images/gallery-3-5.jpg'
       ]
     },
     'project-4': {
@@ -73,7 +80,10 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       images: [
         '../images/gallery-4.jpg',
-        '../images/gallery-4-2.jpg'
+        '../images/gallery-4-2.jpg',
+        '../images/gallery-4-3.jpg',
+        '../images/gallery-4-4.jpg',
+        '../images/gallery-4-5.jpg'
       ]
     },
     'project-5': {
@@ -108,7 +118,10 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       images: [
         '../images/gallery-6.jpg',
-        '../images/gallery-6-2.jpg'
+        '../images/gallery-6-2.jpg',
+        '../images/gallery-6-3.jpg',
+        '../images/gallery-6-4.jpg',
+        '../images/gallery-6-5.jpg'
       ]
     }
   };
@@ -301,28 +314,23 @@ document.addEventListener('DOMContentLoaded', () => {
   /* --------------------------------------------------------------------------
    * 8. PROJECT SHOWCASE MODAL & SLIDESHOW LOGIC
    * -------------------------------------------------------------------------- */
-  // Update image & UI controls in slideshow
   const updateSlideshowUI = (index) => {
     if (currentProjectImages.length === 0) return;
 
-    // Bounds check
     if (index < 0) index = currentProjectImages.length - 1;
     if (index >= currentProjectImages.length) index = 0;
     currentImageIndex = index;
 
-    // Fade animation on image change
     modalImage.classList.add('fade-out');
     setTimeout(() => {
       modalImage.src = currentProjectImages[currentImageIndex];
       modalImage.classList.remove('fade-out');
     }, 150);
 
-    // Update Counter (e.g. 01 / 05)
     const currentNumStr = String(currentImageIndex + 1).padStart(2, '0');
     const totalNumStr = String(currentProjectImages.length).padStart(2, '0');
     slideshowCounter.textContent = `${currentNumStr} / ${totalNumStr}`;
 
-    // Update Dots Active State
     const dots = slideshowDots.querySelectorAll('.dot');
     dots.forEach((dot, idx) => {
       if (idx === currentImageIndex) {
@@ -332,7 +340,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Update Arrow Disabled States if single image
     if (currentProjectImages.length <= 1) {
       slideshowPrev.classList.add('disabled');
       slideshowNext.classList.add('disabled');
@@ -346,7 +353,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // Render Indicator Dots
   const renderDots = (total) => {
     slideshowDots.innerHTML = '';
     if (total <= 1) return;
@@ -362,7 +368,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // Open Project Showcase Modal
   const openProjectModal = (projectId) => {
     const data = projectsData[projectId];
     if (!data) return;
@@ -370,7 +375,6 @@ document.addEventListener('DOMContentLoaded', () => {
     currentProjectImages = data.images || [];
     currentImageIndex = 0;
 
-    // Fill Content Information
     modalTitle.textContent = data.title;
     modalCategory.textContent = data.categoryLabel;
     modalDesc.textContent = data.description;
@@ -379,24 +383,20 @@ document.addEventListener('DOMContentLoaded', () => {
     metaTools.textContent = data.meta.tools;
     metaConcept.textContent = data.meta.concept;
 
-    // Render Dots & Initial Image
     renderDots(currentProjectImages.length);
     updateSlideshowUI(0);
 
-    // Show Modal
     lightboxModal.classList.add('active');
     lightboxModal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
   };
 
-  // Close Modal
   const closeProjectModal = () => {
     lightboxModal.classList.remove('active');
     lightboxModal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
   };
 
-  // Attach Click Handlers to Project Cards
   projectCards.forEach(card => {
     card.addEventListener('click', () => {
       const projectId = card.getAttribute('data-project-id');
@@ -404,7 +404,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Next / Prev Button Controls
   slideshowNext.addEventListener('click', (e) => {
     e.stopPropagation();
     updateSlideshowUI(currentImageIndex + 1);
@@ -415,7 +414,6 @@ document.addEventListener('DOMContentLoaded', () => {
     updateSlideshowUI(currentImageIndex - 1);
   });
 
-  // Close Modal Events
   if (modalCloseBtn) {
     modalCloseBtn.addEventListener('click', closeProjectModal);
   }
@@ -459,13 +457,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const deltaX = touchEndX - touchStartX;
     const deltaY = touchEndY - touchStartY;
 
-    // Check if swipe is horizontal (X distance > Y distance)
     if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 40) {
       if (deltaX < 0) {
-        // Swipe Left -> Next Image
         updateSlideshowUI(currentImageIndex + 1);
       } else {
-        // Swipe Right -> Prev Image
         updateSlideshowUI(currentImageIndex - 1);
       }
     }
