@@ -37,7 +37,7 @@
       </nav>
 
       <!-- Mobile Hamburger Button -->
-      <button class="mobile-toggle" id="mobileToggle" aria-label="Open Navigation Menu">
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Mở Menu Điều Hướng">
         <span></span>
         <span></span>
         <span></span>
@@ -200,7 +200,7 @@
       <!-- Projects Grid -->
       <div class="projects-grid" id="projectsGrid">
         <!-- Card 1 -->
-        <article class="project-card glass-card" data-category="poster" data-img="../images/gallery-1.jpg" data-title="Poster Vân Tràm - Sắc Tràm Tự Nhiên" data-desc="Tác phẩm thiết kế poster nghệ thuật truyền tải thông điệp thiên nhiên với kiểu chữ sang trọng và họa tiết lá tràm tinh tế.">
+        <article class="project-card glass-card" data-project-id="project-1" data-category="poster">
           <div class="project-thumb">
             <img src="../images/gallery-1.jpg" alt="Poster Vân Tràm - Sắc Tràm Tự Nhiên" loading="lazy">
             <div class="project-overlay">
@@ -219,7 +219,7 @@
         </article>
 
         <!-- Card 2 -->
-        <article class="project-card glass-card" data-category="brand" data-img="../images/gallery-2.jpg" data-title="Bộ Nhận Diện Thương Hiệu Vân Tràm" data-desc="Thiết kế hệ thống nhận diện thương hiệu cao cấp gồm Logo monogram, danh thiếp ép kim gold foil và bộ văn phòng phẩm đồng bộ.">
+        <article class="project-card glass-card" data-project-id="project-2" data-category="brand">
           <div class="project-thumb">
             <img src="../images/gallery-2.jpg" alt="Bộ Nhận Diện Thương Hiệu Vân Tràm" loading="lazy">
             <div class="project-overlay">
@@ -238,7 +238,7 @@
         </article>
 
         <!-- Card 3 -->
-        <article class="project-card glass-card" data-category="packaging" data-img="../images/gallery-3.jpg" data-title="Bao Bì Trà Thảo Mộc Vân Tràm" data-desc="Thiết kế hộp bao bì trà cao cấp sử dụng chất liệu giấy mỹ thuật thân thiện với môi trường và họa tiết dập nổi sang trọng.">
+        <article class="project-card glass-card" data-project-id="project-3" data-category="packaging">
           <div class="project-thumb">
             <img src="../images/gallery-3.jpg" alt="Bao Bì Trà Thảo Mộc Vân Tràm" loading="lazy">
             <div class="project-overlay">
@@ -257,7 +257,7 @@
         </article>
 
         <!-- Card 4 -->
-        <article class="project-card glass-card" data-category="poster" data-img="../images/gallery-4.jpg" data-title="Ấn Phẩm Chữ Artistic Typography" data-desc="Nghiên cứu cấu trúc font chữ Serif cổ điển kết hợp tương phản hiện đại mang lại cảm xúc thị giác mạnh mẽ.">
+        <article class="project-card glass-card" data-project-id="project-4" data-category="poster">
           <div class="project-thumb">
             <img src="../images/gallery-4.jpg" alt="Ấn Phẩm Chữ Artistic Typography" loading="lazy">
             <div class="project-overlay">
@@ -276,7 +276,7 @@
         </article>
 
         <!-- Card 5 -->
-        <article class="project-card glass-card" data-category="art" data-img="../images/gallery-5.jpg" data-title="Minh Họa Rừng Tràm Mờ Sương" data-desc="Tác phẩm vẽ minh họa kỹ thuật số thể hiện khung cảnh thiên nhiên hoang sơ với những đường nét mạ vàng quý phái.">
+        <article class="project-card glass-card" data-project-id="project-5" data-category="art">
           <div class="project-thumb">
             <img src="../images/gallery-5.jpg" alt="Minh Họa Rừng Tràm Mờ Sương" loading="lazy">
             <div class="project-overlay">
@@ -295,7 +295,7 @@
         </article>
 
         <!-- Card 6 -->
-        <article class="project-card glass-card" data-category="brand" data-img="../images/gallery-6.jpg" data-title="Giao Diện Truyền Thông Digital Banner" data-desc="Thiết kế hệ thống Banner truyền thông kỹ thuật số tối ưu hiển thị trên các nền tảng mạng xã hội và website.">
+        <article class="project-card glass-card" data-project-id="project-6" data-category="brand">
           <div class="project-thumb">
             <img src="../images/gallery-6.jpg" alt="Giao Diện Truyền Thông Digital Banner" loading="lazy">
             <div class="project-overlay">
@@ -475,21 +475,67 @@
   </footer>
 
   <!-- ==========================================================================
-       MODAL LIGHTBOX & FLOATING ELEMENTS
+       PROJECT DETAIL SHOWCASE MODAL WITH MULTI-IMAGE SLIDESHOW
        ========================================================================== -->
-  <!-- Image Lightbox Modal -->
-  <div class="modal-overlay" id="lightboxModal">
-    <div class="modal-content-card">
-      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close Lightbox">&times;</button>
-      <div class="modal-img-wrapper">
-        <img src="" alt="Enlarged Project Artwork" id="modalImage">
+  <div class="modal-overlay" id="lightboxModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-content-card showcase-modal">
+      <!-- Close Button X -->
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Đóng cửa sổ showcase">&times;</button>
+      
+      <!-- Left Column: Slideshow Area -->
+      <div class="modal-slideshow-col">
+        <div class="slideshow-container" id="slideshowContainer">
+          <!-- Main Display Image -->
+          <div class="slideshow-image-wrapper">
+            <img src="" alt="Tác phẩm Vân Tràm Project Showcase" id="modalImage">
+          </div>
+
+          <!-- Navigation Arrow Buttons -->
+          <button class="slideshow-arrow slideshow-prev" id="slideshowPrev" aria-label="Ảnh trước (ArrowLeft)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button class="slideshow-arrow slideshow-next" id="slideshowNext" aria-label="Ảnh tiếp theo (ArrowRight)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+
+          <!-- Bottom Control Bar (Dots + Counter) -->
+          <div class="slideshow-controls-bar">
+            <div class="slideshow-dots" id="slideshowDots"></div>
+            <div class="slideshow-counter" id="slideshowCounter">01 / 01</div>
+          </div>
+        </div>
       </div>
+
+      <!-- Right Column: Project Details Info -->
       <div class="modal-info-body">
-        <div class="modal-category-tag" id="modalCategory">Danh mục</div>
+        <div class="modal-category-tag" id="modalCategory">CATEGORY</div>
         <h3 class="modal-title" id="modalTitle">Tiêu đề dự án</h3>
         <p class="modal-description" id="modalDesc">Mô tả dự án...</p>
-        <a href="#contact" class="btn btn-outline" id="modalContactBtn" style="align-self: flex-start;">
+
+        <!-- Project Meta Specs -->
+        <div class="modal-meta-grid" id="modalMetaGrid">
+          <div class="meta-item">
+            <span class="meta-label">Loại thiết kế:</span>
+            <span class="meta-value" id="metaType">Poster & Typography</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Năm thực hiện:</span>
+            <span class="meta-value" id="metaYear">2026</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Công cụ:</span>
+            <span class="meta-value" id="metaTools">Adobe Illustrator, Photoshop</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Chủ đề:</span>
+            <span class="meta-value" id="metaConcept">Sắc Tràm Tự Nhiên</span>
+          </div>
+        </div>
+
+        <!-- Action CTA Button -->
+        <a href="#contact" class="btn btn-primary modal-cta-btn" id="modalContactBtn">
           Tư vấn dự án tương tự
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
     </div>
@@ -499,7 +545,7 @@
   <div class="toast-container" id="toastContainer"></div>
 
   <!-- Back To Top Button -->
-  <button class="back-to-top" id="backToTop" aria-label="Scroll back to top">
+  <button class="back-to-top" id="backToTop" aria-label="Cuộn lên đầu trang">
     ↑
   </button>
 

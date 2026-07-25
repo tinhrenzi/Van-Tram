@@ -1,13 +1,120 @@
 /* ==========================================================================
    VÂN TRÀM - Graphic Design Portfolio
-   Main JavaScript | Pure JS Interactivity & Interactions
+   Main JavaScript | Pure JS Interactivity & Showcase Modal Slideshow
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
   /* --------------------------------------------------------------------------
-   * 1. DOM Elements Selection
+   * 1. PROJECT DATA STRUCTURE (MULTI-IMAGE SHOWCASE DATA)
+   * -------------------------------------------------------------------------- */
+  const projectsData = {
+    'project-1': {
+      title: 'Poster Vân Tràm - Sắc Tràm Tự Nhiên',
+      category: 'poster',
+      categoryLabel: 'Poster & Typography',
+      description: 'Tác phẩm thiết kế poster nghệ thuật truyền tải thông điệp thiên nhiên với kiểu chữ sang trọng và họa tiết lá tràm tinh tế.',
+      meta: {
+        type: 'Poster & Graphic Print',
+        year: '2026',
+        tools: 'Adobe Illustrator, Photoshop',
+        concept: 'Sắc Tràm Tự Nhiên'
+      },
+      images: [
+        '../images/gallery-1.jpg',
+        '../images/gallery-1-2.jpg',
+        '../images/gallery-1-3.jpg'
+      ]
+    },
+    'project-2': {
+      title: 'Bộ Nhận Diện Brand Visual Identity',
+      category: 'brand',
+      categoryLabel: 'Nhận diện thương hiệu',
+      description: 'Thiết kế hệ thống nhận diện thương hiệu cao cấp gồm Logo monogram, danh thiếp ép kim gold foil và bộ văn phòng phẩm đồng bộ.',
+      meta: {
+        type: 'Brand Identity System',
+        year: '2026',
+        tools: 'Adobe Illustrator, InDesign',
+        concept: 'Bản sắc Độc bản'
+      },
+      images: [
+        '../images/gallery-2.jpg',
+        '../images/gallery-2-2.jpg',
+        '../images/gallery-2-3.jpg'
+      ]
+    },
+    'project-3': {
+      title: 'Bao Bì Trà Thảo Mộc Vân Tràm',
+      category: 'packaging',
+      categoryLabel: 'Bao bì sản phẩm',
+      description: 'Thiết kế hộp bao bì trà cao cấp sử dụng chất liệu giấy mỹ thuật thân thiện với môi trường và họa tiết dập nổi sang trọng.',
+      meta: {
+        type: 'Packaging & Product Design',
+        year: '2026',
+        tools: 'Adobe Illustrator, Dimensions',
+        concept: 'Eco Luxury Packaging'
+      },
+      images: [
+        '../images/gallery-3.jpg',
+        '../images/gallery-3-2.jpg'
+      ]
+    },
+    'project-4': {
+      title: 'Artistic Editorial Typography',
+      category: 'poster',
+      categoryLabel: 'Poster & Typography',
+      description: 'Nghiên cứu cấu trúc font chữ Serif cổ điển kết hợp tương phản hiện đại mang lại cảm xúc thị giác mạnh mẽ trên các ấn phẩm.',
+      meta: {
+        type: 'Editorial Typography',
+        year: '2026',
+        tools: 'Adobe InDesign, Photoshop',
+        concept: 'Typography Layout Art'
+      },
+      images: [
+        '../images/gallery-4.jpg',
+        '../images/gallery-4-2.jpg'
+      ]
+    },
+    'project-5': {
+      title: 'Minh Họa Rừng Tràm Mờ Sương',
+      category: 'art',
+      categoryLabel: 'Minh họa nghệ thuật',
+      description: 'Tác phẩm vẽ minh họa kỹ thuật số thể hiện khung cảnh thiên nhiên hoang sơ với những đường nét mạ vàng quý phái.',
+      meta: {
+        type: 'Digital Art Illustration',
+        year: '2026',
+        tools: 'Procreate, Illustrator',
+        concept: 'Misty Forest Art'
+      },
+      images: [
+        '../images/gallery-5.jpg',
+        '../images/gallery-5-2.jpg',
+        '../images/gallery-5-3.jpg',
+        '../images/gallery-5-4.jpg',
+        '../images/gallery-5-5.jpg'
+      ]
+    },
+    'project-6': {
+      title: 'Giao Diện Banner Digital Media',
+      category: 'brand',
+      categoryLabel: 'Nhận diện thương hiệu',
+      description: 'Thiết kế hệ thống Banner truyền thông kỹ thuật số tối ưu hiển thị trên các nền tảng mạng xã hội và website.',
+      meta: {
+        type: 'Digital Media Visual',
+        year: '2026',
+        tools: 'Adobe Photoshop, Figma',
+        concept: 'Social Media Campaign'
+      },
+      images: [
+        '../images/gallery-6.jpg',
+        '../images/gallery-6-2.jpg'
+      ]
+    }
+  };
+
+  /* --------------------------------------------------------------------------
+   * 2. DOM ELEMENTS SELECTION
    * -------------------------------------------------------------------------- */
   const header = document.getElementById('header');
   const navMenu = document.getElementById('navMenu');
@@ -16,6 +123,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileOverlay = document.getElementById('mobileOverlay');
   const filterBtns = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('.project-card');
+  const contactForm = document.getElementById('contactForm');
+  const toastContainer = document.getElementById('toastContainer');
+  const backToTopBtn = document.getElementById('backToTop');
+  const statNumbers = document.querySelectorAll('.stat-box .count');
+
+  /* Modal & Slideshow Elements */
   const lightboxModal = document.getElementById('lightboxModal');
   const modalCloseBtn = document.getElementById('modalCloseBtn');
   const modalContactBtn = document.getElementById('modalContactBtn');
@@ -23,25 +136,32 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalTitle = document.getElementById('modalTitle');
   const modalCategory = document.getElementById('modalCategory');
   const modalDesc = document.getElementById('modalDesc');
-  const contactForm = document.getElementById('contactForm');
-  const toastContainer = document.getElementById('toastContainer');
-  const backToTopBtn = document.getElementById('backToTop');
-  const statNumbers = document.querySelectorAll('.stat-box .count');
+  const metaType = document.getElementById('metaType');
+  const metaYear = document.getElementById('metaYear');
+  const metaTools = document.getElementById('metaTools');
+  const metaConcept = document.getElementById('metaConcept');
+  const slideshowContainer = document.getElementById('slideshowContainer');
+  const slideshowPrev = document.getElementById('slideshowPrev');
+  const slideshowNext = document.getElementById('slideshowNext');
+  const slideshowDots = document.getElementById('slideshowDots');
+  const slideshowCounter = document.getElementById('slideshowCounter');
+
+  /* Slideshow State Variables */
+  let currentProjectImages = [];
+  let currentImageIndex = 0;
 
   /* --------------------------------------------------------------------------
-   * 2. Header Scroll Effect & Back-To-Top Button
+   * 3. HEADER SCROLL EFFECT & BACK-TO-TOP BUTTON
    * -------------------------------------------------------------------------- */
   const handleScroll = () => {
     const scrollY = window.scrollY;
 
-    // Header sticky shadow
     if (scrollY > 50) {
       header.classList.add('scrolled');
     } else {
       header.classList.remove('scrolled');
     }
 
-    // Back to top visibility
     if (scrollY > 400) {
       backToTopBtn.classList.add('show');
     } else {
@@ -50,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   window.addEventListener('scroll', handleScroll);
-  handleScroll(); // Initial check
+  handleScroll();
 
   backToTopBtn.addEventListener('click', () => {
     window.scrollTo({
@@ -60,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* --------------------------------------------------------------------------
-   * 3. Mobile Navigation Menu Toggle
+   * 4. MOBILE NAVIGATION MENU TOGGLE
    * -------------------------------------------------------------------------- */
   const toggleMobileMenu = () => {
     mobileToggle.classList.toggle('active');
@@ -84,7 +204,6 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileOverlay.addEventListener('click', closeMobileMenu);
   }
 
-  // Close menu when clicking nav items
   navLinks.forEach(link => {
     link.addEventListener('click', () => {
       closeMobileMenu();
@@ -92,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* --------------------------------------------------------------------------
-   * 4. Active Navigation Link Highlighting on Scroll (IntersectionObserver)
+   * 5. ACTIVE NAV LINK HIGHLIGHTING (IntersectionObserver)
    * -------------------------------------------------------------------------- */
   const sections = document.querySelectorAll('section[id]');
 
@@ -119,7 +238,7 @@ document.addEventListener('DOMContentLoaded', () => {
   sections.forEach(section => sectionObserver.observe(section));
 
   /* --------------------------------------------------------------------------
-   * 5. Stats Animated Counter Effect
+   * 6. STATS ANIMATED COUNTER EFFECT
    * -------------------------------------------------------------------------- */
   let animatedStats = false;
   const statsSection = document.querySelector('.stats-counter-grid');
@@ -127,7 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const animateCounters = () => {
     statNumbers.forEach(counter => {
       const target = +counter.getAttribute('data-target');
-      const duration = 1500; // ms
+      const duration = 1500;
       const stepTime = 30;
       const steps = duration / stepTime;
       const increment = target / steps;
@@ -157,11 +276,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* --------------------------------------------------------------------------
-   * 6. Gallery Category Filter
+   * 7. GALLERY CATEGORY FILTER
    * -------------------------------------------------------------------------- */
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      // Toggle active class on buttons
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
@@ -181,59 +299,195 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* --------------------------------------------------------------------------
-   * 7. Lightbox Modal Viewer
+   * 8. PROJECT SHOWCASE MODAL & SLIDESHOW LOGIC
    * -------------------------------------------------------------------------- */
-  const openLightbox = (card) => {
-    const imgSrc = card.getAttribute('data-img');
-    const title = card.getAttribute('data-title');
-    const desc = card.getAttribute('data-desc');
-    const categoryText = card.querySelector('.project-category').textContent;
+  // Update image & UI controls in slideshow
+  const updateSlideshowUI = (index) => {
+    if (currentProjectImages.length === 0) return;
 
-    modalImage.src = imgSrc;
-    modalImage.alt = title;
-    modalTitle.textContent = title;
-    modalCategory.textContent = categoryText;
-    modalDesc.textContent = desc;
+    // Bounds check
+    if (index < 0) index = currentProjectImages.length - 1;
+    if (index >= currentProjectImages.length) index = 0;
+    currentImageIndex = index;
 
+    // Fade animation on image change
+    modalImage.classList.add('fade-out');
+    setTimeout(() => {
+      modalImage.src = currentProjectImages[currentImageIndex];
+      modalImage.classList.remove('fade-out');
+    }, 150);
+
+    // Update Counter (e.g. 01 / 05)
+    const currentNumStr = String(currentImageIndex + 1).padStart(2, '0');
+    const totalNumStr = String(currentProjectImages.length).padStart(2, '0');
+    slideshowCounter.textContent = `${currentNumStr} / ${totalNumStr}`;
+
+    // Update Dots Active State
+    const dots = slideshowDots.querySelectorAll('.dot');
+    dots.forEach((dot, idx) => {
+      if (idx === currentImageIndex) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
+
+    // Update Arrow Disabled States if single image
+    if (currentProjectImages.length <= 1) {
+      slideshowPrev.classList.add('disabled');
+      slideshowNext.classList.add('disabled');
+      slideshowDots.style.display = 'none';
+      slideshowCounter.style.display = 'none';
+    } else {
+      slideshowPrev.classList.remove('disabled');
+      slideshowNext.classList.remove('disabled');
+      slideshowDots.style.display = 'flex';
+      slideshowCounter.style.display = 'block';
+    }
+  };
+
+  // Render Indicator Dots
+  const renderDots = (total) => {
+    slideshowDots.innerHTML = '';
+    if (total <= 1) return;
+
+    for (let i = 0; i < total; i++) {
+      const dot = document.createElement('span');
+      dot.className = `dot ${i === 0 ? 'active' : ''}`;
+      dot.setAttribute('aria-label', `Chuyển tới ảnh ${i + 1}`);
+      dot.addEventListener('click', () => {
+        updateSlideshowUI(i);
+      });
+      slideshowDots.appendChild(dot);
+    }
+  };
+
+  // Open Project Showcase Modal
+  const openProjectModal = (projectId) => {
+    const data = projectsData[projectId];
+    if (!data) return;
+
+    currentProjectImages = data.images || [];
+    currentImageIndex = 0;
+
+    // Fill Content Information
+    modalTitle.textContent = data.title;
+    modalCategory.textContent = data.categoryLabel;
+    modalDesc.textContent = data.description;
+    metaType.textContent = data.meta.type;
+    metaYear.textContent = data.meta.year;
+    metaTools.textContent = data.meta.tools;
+    metaConcept.textContent = data.meta.concept;
+
+    // Render Dots & Initial Image
+    renderDots(currentProjectImages.length);
+    updateSlideshowUI(0);
+
+    // Show Modal
     lightboxModal.classList.add('active');
+    lightboxModal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
   };
 
-  const closeLightbox = () => {
+  // Close Modal
+  const closeProjectModal = () => {
     lightboxModal.classList.remove('active');
+    lightboxModal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
   };
 
+  // Attach Click Handlers to Project Cards
   projectCards.forEach(card => {
-    card.addEventListener('click', () => openLightbox(card));
+    card.addEventListener('click', () => {
+      const projectId = card.getAttribute('data-project-id');
+      openProjectModal(projectId);
+    });
   });
 
+  // Next / Prev Button Controls
+  slideshowNext.addEventListener('click', (e) => {
+    e.stopPropagation();
+    updateSlideshowUI(currentImageIndex + 1);
+  });
+
+  slideshowPrev.addEventListener('click', (e) => {
+    e.stopPropagation();
+    updateSlideshowUI(currentImageIndex - 1);
+  });
+
+  // Close Modal Events
   if (modalCloseBtn) {
-    modalCloseBtn.addEventListener('click', closeLightbox);
+    modalCloseBtn.addEventListener('click', closeProjectModal);
   }
 
   if (lightboxModal) {
     lightboxModal.addEventListener('click', (e) => {
       if (e.target === lightboxModal) {
-        closeLightbox();
+        closeProjectModal();
       }
     });
   }
 
   if (modalContactBtn) {
     modalContactBtn.addEventListener('click', () => {
-      closeLightbox();
+      closeProjectModal();
     });
   }
 
+  /* --------------------------------------------------------------------------
+   * 9. TOUCH / POINTER SWIPE SUPPORT FOR MOBILE SLIDESHOW
+   * -------------------------------------------------------------------------- */
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let touchEndX = 0;
+  let touchEndY = 0;
+
+  if (slideshowContainer) {
+    slideshowContainer.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+
+    slideshowContainer.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      touchEndY = e.changedTouches[0].screenY;
+      handleSwipe();
+    }, { passive: true });
+  }
+
+  const handleSwipe = () => {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    // Check if swipe is horizontal (X distance > Y distance)
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 40) {
+      if (deltaX < 0) {
+        // Swipe Left -> Next Image
+        updateSlideshowUI(currentImageIndex + 1);
+      } else {
+        // Swipe Right -> Prev Image
+        updateSlideshowUI(currentImageIndex - 1);
+      }
+    }
+  };
+
+  /* --------------------------------------------------------------------------
+   * 10. KEYBOARD ACCESSIBILITY (ESC & ARROW KEYS)
+   * -------------------------------------------------------------------------- */
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightboxModal.classList.contains('active')) {
-      closeLightbox();
+    if (!lightboxModal.classList.contains('active')) return;
+
+    if (e.key === 'Escape') {
+      closeProjectModal();
+    } else if (e.key === 'ArrowRight') {
+      updateSlideshowUI(currentImageIndex + 1);
+    } else if (e.key === 'ArrowLeft') {
+      updateSlideshowUI(currentImageIndex - 1);
     }
   });
 
   /* --------------------------------------------------------------------------
-   * 8. Form Validation & Toast Notification Simulation
+   * 11. FORM VALIDATION & TOAST NOTIFICATION
    * -------------------------------------------------------------------------- */
   const showToast = (message, type = 'success') => {
     const toast = document.createElement('div');
