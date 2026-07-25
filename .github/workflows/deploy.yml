@@ -1,0 +1,59 @@
+name: Deploy Vân Tràm Website to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+# Cấp quyền ghi artifact & deployment cho GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Giới hạn 1 deployment chạy tại một thời điểm
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Build & Prepare Public Directory
+        run: |
+          # 1. Tạo thư mục public làm gốc cho GitHub Pages
+          mkdir -p public
+          
+          # 2. Copy tài nguyên css, js, images vào public/
+          cp -r css js images public/
+          
+          # 3. Copy index.html ra root của public/
+          cp html/index.html public/index.html
+          
+          # 4. Sửa đường dẫn tương đối từ ../ thành ./ trong public/index.html
+          sed -i 's|\.\./css/|css/|g' public/index.html
+          sed -i 's|\.\./js/|js/|g' public/index.html
+          sed -i 's|\.\./images/|images/|g' public/index.html
+          
+          # 5. Tạo file .nojekyll rỗng để bypass Jekyll processing
+          touch public/.nojekyll
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './public'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
