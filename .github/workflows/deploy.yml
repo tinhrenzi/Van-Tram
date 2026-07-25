@@ -41,12 +41,15 @@ jobs:
           # 3. Copy index.html ra root của public/
           cp html/index.html public/index.html
           
-          # 4. Sửa đường dẫn tương đối từ ../ thành ./ trong public/index.html
+          # 4. Sửa đường dẫn tương đối trong public/index.html
           sed -i 's|\.\./css/|css/|g' public/index.html
           sed -i 's|\.\./js/|js/|g' public/index.html
           sed -i 's|\.\./images/|images/|g' public/index.html
           
-          # 5. Tạo file .nojekyll rỗng để bypass Jekyll processing
+          # 5. Sửa đường dẫn ảnh tương đối trong public/js/main.js
+          sed -i 's|\.\./images/|images/|g' public/js/main.js
+          
+          # 6. Tạo file .nojekyll rỗng để bypass Jekyll processing
           touch public/.nojekyll
 
       - name: Upload Pages artifact

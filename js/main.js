@@ -7,6 +7,18 @@ document.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
   /* --------------------------------------------------------------------------
+   * HELPER: DYNAMIC IMAGE PATH NORMALIZATION (GITHUB PAGES & LOCAL COMPATIBILITY)
+   * -------------------------------------------------------------------------- */
+  const normalizeImgPath = (path) => {
+    if (!path) return '';
+    // Nếu trang đang chạy ở root (như GitHub Pages /index.html) và không nằm trong folder /html/
+    if (!window.location.pathname.includes('/html/')) {
+      return path.replace(/^\.\.\/images\//, 'images/').replace(/^\.\.\//, '');
+    }
+    return path;
+  };
+
+  /* --------------------------------------------------------------------------
    * 1. PROJECT DATA STRUCTURE (FULL 5-IMAGE SHOWCASE PER PROJECT)
    * -------------------------------------------------------------------------- */
   const projectsData = {
@@ -323,7 +335,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     modalImage.classList.add('fade-out');
     setTimeout(() => {
-      modalImage.src = currentProjectImages[currentImageIndex];
+      modalImage.src = normalizeImgPath(currentProjectImages[currentImageIndex]);
       modalImage.classList.remove('fade-out');
     }, 150);
 
