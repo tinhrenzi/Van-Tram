@@ -1,43 +1,43 @@
 /* ==========================================================================
    VÂN TRÀM - Graphic Design Portfolio
-   Style Sheet | Dark Botanical & Gold Luxury Aesthetics
+   Style Sheet | Light Aesthetic Palette with Primary Background #fdf9ce
    ========================================================================== */
 
 /* --- Google Fonts Import --- */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
-/* --- CSS Variables / Design Tokens --- */
+/* --- CSS Variables / Design Tokens (#fdf9ce Background Theme) --- */
 :root {
-  /* Colors */
-  --bg-primary: #0d151d;
-  --bg-secondary: #162432;
-  --bg-card: rgba(22, 36, 50, 0.65);
-  --bg-card-hover: rgba(30, 48, 66, 0.85);
-  --bg-glass: rgba(13, 21, 29, 0.82);
-  --bg-modal: rgba(8, 12, 17, 0.92);
+  /* Main Colors */
+  --bg-primary: #fdf9ce;          /* Nền chính của toàn bộ trang web (#fdf9ce) */
+  --bg-secondary: #f6f0b4;        /* Nền phụ cho các section như Gallery, Process & Contact */
+  --bg-card: rgba(255, 255, 255, 0.92); /* Thẻ Glassmorphic nền trắng mịn trên phông #fdf9ce */
+  --bg-card-hover: #ffffff;
+  --bg-glass: rgba(253, 249, 206, 0.94); /* Nền Header thanh điều hướng */
+  --bg-modal: rgba(15, 20, 26, 0.85);   /* Nền tối làm nổi bật cửa sổ Showcase Modal */
   
-  --accent-gold: #d4af37;
-  --accent-gold-light: #e6cb68;
-  --accent-gold-glow: rgba(212, 175, 55, 0.22);
-  --accent-teal: #1e4544;
-  --accent-teal-glow: rgba(30, 69, 68, 0.4);
+  --accent-gold: #b38600;         /* Màu vàng son sang trọng trên nền sáng */
+  --accent-gold-light: #cfa11d;
+  --accent-gold-glow: rgba(179, 134, 0, 0.16);
+  --accent-teal: #1a4d4b;
+  --accent-teal-glow: rgba(26, 77, 75, 0.2);
   
-  --text-main: #f4efe6;
-  --text-muted: #94a8bc;
-  --text-gold: #e2b774;
+  --text-main: #1c2833;           /* Chữ chính màu xanh đen đậm đọc cực kỳ rõ nét */
+  --text-muted: #536473;          /* Chữ phụ màu xám đá */
+  --text-gold: #996e00;           /* Chữ nhấn màu vàng hoàng gia */
   
-  --border-subtle: rgba(212, 175, 55, 0.18);
-  --border-hover: rgba(212, 175, 55, 0.45);
-  --border-light: rgba(244, 239, 230, 0.1);
+  --border-subtle: rgba(160, 120, 10, 0.22);
+  --border-hover: rgba(179, 134, 0, 0.55);
+  --border-light: rgba(28, 40, 51, 0.12);
 
   /* Typography */
   --font-serif: 'Playfair Display', Georgia, serif;
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Elevation & Shadows */
-  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.25);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
-  --shadow-gold: 0 10px 30px rgba(212, 175, 55, 0.15);
+  --shadow-sm: 0 4px 12px rgba(120, 95, 20, 0.08);
+  --shadow-md: 0 8px 24px rgba(120, 95, 20, 0.12);
+  --shadow-gold: 0 10px 30px rgba(179, 134, 0, 0.2);
 
   /* Transitions */
   --transition-fast: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -66,7 +66,7 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--bg-primary);
+  background-color: var(--bg-primary); /* ĐẶT MÃ MÀU NỀN CẢ TRANG WEB: #fdf9ce */
   color: var(--text-main);
   line-height: 1.6;
   overflow-x: hidden;
@@ -82,7 +82,7 @@ body {
   background: var(--bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--bg-secondary);
+  background: #e4dc97;
   border: 2px solid var(--bg-primary);
   border-radius: 5px;
 }
@@ -93,7 +93,7 @@ body {
 /* --- Selection & Typography --- */
 ::selection {
   background: var(--accent-gold);
-  color: var(--bg-primary);
+  color: #ffffff;
 }
 
 a {
@@ -138,7 +138,7 @@ button, input, textarea, select {
   color: var(--accent-gold);
   margin-bottom: 0.75rem;
   padding: 0.35rem 1rem;
-  background: var(--accent-gold-glow);
+  background: rgba(179, 134, 0, 0.12);
   border: 1px solid var(--border-subtle);
   border-radius: 50px;
 }
@@ -192,27 +192,27 @@ button, input, textarea, select {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--accent-gold) 0%, #b89327 100%);
-  color: #0d151d;
-  box-shadow: 0 4px 15px var(--accent-gold-glow);
+  background: linear-gradient(135deg, var(--accent-gold) 0%, #996e00 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(153, 110, 0, 0.3);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, var(--accent-gold-light) 0%, var(--accent-gold) 100%);
+  background: linear-gradient(135deg, #cfa11d 0%, var(--accent-gold) 100%);
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.35);
+  box-shadow: 0 8px 25px rgba(179, 134, 0, 0.4);
 }
 
 .btn-outline {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.7);
   color: var(--text-main);
   border-color: var(--border-subtle);
 }
 
 .btn-outline:hover {
   border-color: var(--accent-gold);
-  color: var(--text-gold);
-  background: var(--accent-gold-glow);
+  color: var(--accent-gold);
+  background: rgba(255, 255, 255, 0.95);
   transform: translateY(-3px);
 }
 
@@ -223,6 +223,7 @@ button, input, textarea, select {
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
   transition: var(--transition-normal);
 }
 
@@ -250,8 +251,8 @@ button, input, textarea, select {
 
 .header.scrolled {
   height: 70px;
-  background: rgba(13, 21, 29, 0.95);
-  box-shadow: var(--shadow-md);
+  background: rgba(253, 249, 206, 0.98);
+  box-shadow: var(--shadow-sm);
 }
 
 .header .container {
@@ -275,11 +276,11 @@ button, input, textarea, select {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--bg-primary);
+  color: #ffffff;
   font-family: var(--font-serif);
   font-weight: 700;
   font-size: 1.3rem;
-  box-shadow: 0 0 15px var(--accent-gold-glow);
+  box-shadow: 0 0 15px rgba(179, 134, 0, 0.3);
 }
 
 .brand-logo .logo-text {
@@ -304,7 +305,7 @@ button, input, textarea, select {
 
 .nav-link {
   font-size: 0.95rem;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--text-muted);
   position: relative;
   padding: 0.5rem 0;
@@ -372,7 +373,7 @@ button, input, textarea, select {
   left: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(8, 12, 17, 0.85);
+  background: rgba(28, 40, 51, 0.6);
   backdrop-filter: blur(10px);
   z-index: 998;
   opacity: 0;
@@ -405,7 +406,7 @@ button, input, textarea, select {
   left: -10%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, var(--accent-teal-glow) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(179, 134, 0, 0.15) 0%, transparent 70%);
   border-radius: 50%;
   filter: blur(80px);
   z-index: 0;
@@ -419,7 +420,7 @@ button, input, textarea, select {
   right: -5%;
   width: 450px;
   height: 450px;
-  background: radial-gradient(circle, var(--accent-gold-glow) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(26, 77, 75, 0.12) 0%, transparent 70%);
   border-radius: 50%;
   filter: blur(90px);
   z-index: 0;
@@ -445,7 +446,7 @@ button, input, textarea, select {
   gap: 0.5rem;
   padding: 0.4rem 1.2rem;
   border-radius: 50px;
-  background: rgba(212, 175, 55, 0.08);
+  background: rgba(179, 134, 0, 0.12);
   border: 1px solid var(--border-subtle);
   color: var(--accent-gold);
   font-size: 0.88rem;
@@ -492,7 +493,7 @@ button, input, textarea, select {
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 20px 45px rgba(120, 95, 20, 0.18);
   border: 1px solid var(--border-subtle);
   transform: perspective(1000px) rotateY(-4deg) rotateX(2deg);
   transition: var(--transition-normal);
@@ -517,7 +518,7 @@ button, input, textarea, select {
   position: absolute;
   bottom: -20px;
   left: -20px;
-  background: var(--bg-card);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(15px);
   padding: 1.2rem 1.8rem;
   border-radius: var(--radius-md);
@@ -531,7 +532,7 @@ button, input, textarea, select {
 .hero-floating-tag .icon {
   width: 42px;
   height: 42px;
-  background: var(--accent-gold-glow);
+  background: rgba(179, 134, 0, 0.15);
   color: var(--accent-gold);
   border-radius: 50%;
   display: flex;
@@ -583,7 +584,7 @@ button, input, textarea, select {
   position: absolute;
   top: 25px;
   right: -20px;
-  background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
+  background: #ffffff;
   border: 1px solid var(--accent-gold);
   padding: 1.2rem 1.5rem;
   border-radius: var(--radius-md);
@@ -633,7 +634,7 @@ button, input, textarea, select {
   align-items: flex-start;
   gap: 0.85rem;
   padding: 1rem;
-  background: var(--bg-card);
+  background: #ffffff;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
 }
@@ -683,10 +684,10 @@ button, input, textarea, select {
 }
 
 /* ==========================================================================
-   PROJECTS / GALLERY SECTION (740x400 Ratio Cards - BẰNG NHAU 100% CẢ 7 BOX)
+   PROJECTS / GALLERY SECTION (#f6f0b4 Light Accent Background)
    ========================================================================== */
 .gallery-section {
-  background: var(--bg-secondary);
+  background: var(--bg-secondary); /* #f6f0b4 */
 }
 
 /* Filter Navigation */
@@ -700,13 +701,13 @@ button, input, textarea, select {
 }
 
 .filter-btn {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.8);
   color: var(--text-muted);
   border: 1px solid var(--border-subtle);
   padding: 0.6rem 1.4rem;
   border-radius: 50px;
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   transition: var(--transition-fast);
 }
@@ -714,10 +715,9 @@ button, input, textarea, select {
 .filter-btn:hover,
 .filter-btn.active {
   background: var(--accent-gold);
-  color: var(--bg-primary);
+  color: #ffffff;
   border-color: var(--accent-gold);
-  font-weight: 600;
-  box-shadow: 0 4px 15px var(--accent-gold-glow);
+  box-shadow: 0 4px 15px rgba(179, 134, 0, 0.25);
 }
 
 /* Projects Grid */
@@ -730,7 +730,7 @@ button, input, textarea, select {
 .project-card {
   border-radius: var(--radius-md);
   overflow: hidden;
-  background: var(--bg-primary);
+  background: #ffffff;
   border: 1px solid var(--border-subtle);
   transition: var(--transition-normal);
   cursor: pointer;
@@ -768,7 +768,7 @@ button, input, textarea, select {
   transform: scale(1.08);
 }
 
-/* Box 7 (Standee Card): KÍCH THƯỚC & TỶ LỆ KHUNG BẰNG 100% 6 BOX KIA */
+/* Box 7 (Standee Card) */
 .standee-card {
   border-color: var(--border-subtle);
 }
@@ -777,7 +777,7 @@ button, input, textarea, select {
   aspect-ratio: 740 / 400;
   width: 100%;
   height: auto;
-  background: #05080c;
+  background: #080d12;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -800,7 +800,7 @@ button, input, textarea, select {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(13, 21, 29, 0.7);
+  background: rgba(28, 40, 51, 0.65);
   backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
@@ -817,7 +817,7 @@ button, input, textarea, select {
   width: 50px;
   height: 50px;
   background: var(--accent-gold);
-  color: var(--bg-primary);
+  color: #ffffff;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -879,6 +879,7 @@ button, input, textarea, select {
   flex-direction: column;
   position: relative;
   text-align: left;
+  background: #ffffff;
 }
 
 .process-thumb {
@@ -911,7 +912,7 @@ button, input, textarea, select {
   font-family: var(--font-serif);
   font-size: 2.4rem;
   font-weight: 800;
-  color: rgba(212, 175, 55, 0.35);
+  color: rgba(179, 134, 0, 0.4);
   line-height: 1;
   margin-bottom: 0.75rem;
   transition: var(--transition-fast);
@@ -950,6 +951,7 @@ button, input, textarea, select {
 
 .contact-info-card {
   padding: 2.5rem;
+  background: #ffffff;
 }
 
 .contact-info-card h3 {
@@ -981,7 +983,7 @@ button, input, textarea, select {
 .detail-icon {
   width: 48px;
   height: 48px;
-  background: var(--accent-gold-glow);
+  background: rgba(179, 134, 0, 0.12);
   border: 1px solid var(--border-subtle);
   border-radius: 50%;
   display: flex;
@@ -1026,13 +1028,14 @@ button, input, textarea, select {
 
 .social-icon:hover {
   background: var(--accent-gold);
-  color: var(--bg-primary);
+  color: #ffffff;
   transform: translateY(-3px);
 }
 
 /* Contact Form */
 .contact-form-box {
   padding: 2.5rem;
+  background: #ffffff;
 }
 
 .contact-form-box h3 {
@@ -1049,7 +1052,7 @@ button, input, textarea, select {
 .form-group label {
   display: block;
   font-size: 0.88rem;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--text-main);
   margin-bottom: 0.5rem;
 }
@@ -1057,7 +1060,7 @@ button, input, textarea, select {
 .form-control {
   width: 100%;
   padding: 0.9rem 1.2rem;
-  background: rgba(13, 21, 29, 0.7);
+  background: #fdfcfa;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
   color: var(--text-main);
@@ -1066,7 +1069,8 @@ button, input, textarea, select {
 
 .form-control:focus {
   border-color: var(--accent-gold);
-  box-shadow: 0 0 10px var(--accent-gold-glow);
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(179, 134, 0, 0.2);
 }
 
 textarea.form-control {
@@ -1078,7 +1082,7 @@ textarea.form-control {
    FOOTER SECTION
    ========================================================================== */
 .footer {
-  background: var(--bg-primary);
+  background: #f2ebaa;
   padding: 4rem 0 2rem 0;
   border-top: 1px solid var(--border-subtle);
 }
@@ -1109,6 +1113,7 @@ textarea.form-control {
 .footer-nav a {
   color: var(--text-muted);
   font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .footer-nav a:hover {
@@ -1153,17 +1158,17 @@ textarea.form-control {
   visibility: visible;
 }
 
-/* Standard Horizontal Modal Container (Bố cục 2 Cột: Ảnh Bên Trái, Text Bên Phải) */
+/* Standard Horizontal Modal Container */
 .showcase-modal {
   max-width: 1080px;
   width: 100%;
   max-height: 90vh;
-  background: var(--bg-secondary);
+  background: #ffffff;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   overflow: hidden;
   position: relative;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), var(--shadow-gold);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4), var(--shadow-gold);
   display: grid;
   grid-template-columns: 1.15fr 1fr;
   transform: scale(0.92);
@@ -1174,7 +1179,7 @@ textarea.form-control {
   transform: scale(1);
 }
 
-/* SPECIAL EXTRA TALL STANDEE MODAL (CẬP NHẬT RIÊNG CHO CỬA SỔ SHOWCASE MODAL KHI CLICK) */
+/* SPECIAL EXTRA TALL STANDEE MODAL */
 .showcase-modal.is-standee-modal {
   max-width: 1180px;
   height: 88vh;
@@ -1200,13 +1205,14 @@ textarea.form-control {
   max-height: 740px;
   width: auto;
   object-fit: contain;
-  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.9), 0 0 30px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.9), 0 0 30px rgba(179, 134, 0, 0.3);
 }
 
 .showcase-modal.is-standee-modal .modal-info-body {
   padding: 2.5rem 2.2rem;
   height: 100%;
   overflow-y: auto;
+  background: #ffffff;
 }
 
 /* Close Button [X] at Top-Right Corner */
@@ -1216,7 +1222,7 @@ textarea.form-control {
   right: 15px;
   width: 38px;
   height: 38px;
-  background: rgba(13, 21, 29, 0.85);
+  background: #ffffff;
   border: 1px solid var(--border-subtle);
   color: var(--text-main);
   border-radius: 50%;
@@ -1228,18 +1234,19 @@ textarea.form-control {
   z-index: 30;
   transition: var(--transition-fast);
   line-height: 1;
+  box-shadow: var(--shadow-sm);
 }
 
 .modal-close-btn:hover {
   background: var(--accent-gold);
-  color: var(--bg-primary);
+  color: #ffffff;
   transform: rotate(90deg);
   border-color: var(--accent-gold);
 }
 
 /* Left Column: Slideshow Area */
 .modal-slideshow-col {
-  background: #05080c;
+  background: #080d12;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -1295,7 +1302,7 @@ textarea.form-control {
   transform: translateY(-50%);
   width: 44px;
   height: 44px;
-  background: rgba(13, 21, 29, 0.75);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(8px);
   border: 1px solid var(--border-subtle);
   color: var(--text-main);
@@ -1318,9 +1325,9 @@ textarea.form-control {
 
 .slideshow-arrow:hover {
   background: var(--accent-gold);
-  color: var(--bg-primary);
+  color: #ffffff;
   border-color: var(--accent-gold);
-  box-shadow: 0 0 15px var(--accent-gold-glow);
+  box-shadow: 0 0 15px rgba(179, 134, 0, 0.4);
 }
 
 .slideshow-arrow.disabled {
@@ -1347,11 +1354,11 @@ textarea.form-control {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: rgba(13, 21, 29, 0.65);
+  background: rgba(13, 21, 29, 0.75);
   backdrop-filter: blur(8px);
   padding: 6px 14px;
   border-radius: 50px;
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  border: 1px solid rgba(212, 175, 55, 0.3);
   pointer-events: auto;
 }
 
@@ -1359,7 +1366,7 @@ textarea.form-control {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: rgba(244, 239, 230, 0.35);
+  background: rgba(244, 239, 230, 0.4);
   cursor: pointer;
   transition: var(--transition-fast);
 }
@@ -1368,14 +1375,14 @@ textarea.form-control {
   background: var(--accent-gold);
   width: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 10px var(--accent-gold-glow);
+  box-shadow: 0 0 10px rgba(179, 134, 0, 0.4);
 }
 
 .slideshow-counter {
   font-family: var(--font-serif);
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--accent-gold);
+  color: #ffd769;
   letter-spacing: 1px;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
@@ -1388,6 +1395,7 @@ textarea.form-control {
   justify-content: space-between;
   overflow-y: auto;
   max-height: 90vh;
+  background: #ffffff;
 }
 
 .modal-category-tag {
@@ -1420,7 +1428,7 @@ textarea.form-control {
   flex-direction: column;
   gap: 0.75rem;
   padding: 1.25rem;
-  background: var(--bg-primary);
+  background: #fdfcfa;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
   margin-bottom: 2rem;
@@ -1462,7 +1470,7 @@ textarea.form-control {
 
 .toast {
   pointer-events: auto;
-  background: var(--bg-secondary);
+  background: #ffffff;
   border: 1px solid var(--accent-gold);
   color: var(--text-main);
   padding: 1rem 1.5rem;
@@ -1498,10 +1506,9 @@ textarea.form-control {
   left: 30px;
   width: 46px;
   height: 46px;
-  background: var(--bg-card);
-  backdrop-filter: blur(10px);
+  background: #ffffff;
   border: 1px solid var(--border-subtle);
-  color: var(--text-gold);
+  color: var(--accent-gold);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1512,6 +1519,7 @@ textarea.form-control {
   visibility: hidden;
   transition: var(--transition-normal);
   z-index: 900;
+  box-shadow: var(--shadow-sm);
 }
 
 .back-to-top.show {
@@ -1521,7 +1529,7 @@ textarea.form-control {
 
 .back-to-top:hover {
   background: var(--accent-gold);
-  color: var(--bg-primary);
+  color: #ffffff;
   transform: translateY(-4px);
 }
 
@@ -1610,7 +1618,7 @@ textarea.form-control {
     right: -100%;
     width: 280px;
     height: calc(100vh - var(--header-height));
-    background: var(--bg-secondary);
+    background: #ffffff;
     border-left: 1px solid var(--border-subtle);
     flex-direction: column;
     align-items: flex-start;
