@@ -10,8 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
    * HELPER: DYNAMIC IMAGE PATH NORMALIZATION (GITHUB PAGES & LOCAL COMPATIBILITY)
    * -------------------------------------------------------------------------- */
   const normalizeImgPath = (path) => {
-    if (!path) return '';
-    // Nếu trang đang chạy ở root (như GitHub Pages /index.html) và không nằm trong folder /html/
+    if (!path) return '../images/gallery-1.jpg';
     if (!window.location.pathname.includes('/html/')) {
       return path.replace(/^\.\.\/images\//, 'images/').replace(/^\.\.\//, '');
     }
@@ -19,14 +18,14 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   /* --------------------------------------------------------------------------
-   * 1. PROJECT DATA STRUCTURE (FULL 5-IMAGE SHOWCASE PER PROJECT)
+   * 1. PROJECT DATA STRUCTURE (INCLUDES BOX 7 FOR STANDEE: standde.png)
    * -------------------------------------------------------------------------- */
   const projectsData = {
     'project-1': {
       title: 'Poster Vân Tràm - Sắc Tràm Tự Nhiên',
       category: 'poster',
       categoryLabel: 'Poster & Typography',
-      description: 'Tác phẩm thiết kế poster nghệ thuật truyền tải thông điệp thiên nhiên với kiểu chữ sang trọng và họa tiết lá tràm tinh tế.',
+      description: 'Tác phẩm thiết kế poster nghệ thuật quảng bá du lịch sinh thái Làng Thái Hải kết hợp kiểu chữ mộc mạc và họa tiết lá tràm.',
       meta: {
         type: 'Poster & Graphic Print',
         year: '2026',
@@ -35,55 +34,55 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       images: [
         '../images/gallery-1.jpg',
+        '../images/standde.png',
         '../images/gallery-1-2.jpg',
         '../images/gallery-1-3.jpg',
-        '../images/gallery-1-4.jpg',
-        '../images/gallery-1-5.jpg'
+        '../images/gallery-1-4.jpg'
       ]
     },
     'project-2': {
-      title: 'Bộ Nhận Diện Brand Visual Identity',
+      title: 'Nhận Diện Thương Hiệu Làng Thái Hải',
       category: 'brand',
       categoryLabel: 'Nhận diện thương hiệu',
-      description: 'Thiết kế hệ thống nhận diện thương hiệu cao cấp gồm Logo monogram, danh thiếp ép kim gold foil và bộ văn phòng phẩm đồng bộ.',
+      description: 'Thiết kế hệ thống nhận diện thương hiệu cao cấp gồm Logo biểu trưng nhà sàn Thái Hải, danh thiếp ép kim gold foil và cẩm nang thương hiệu.',
       meta: {
         type: 'Brand Identity System',
         year: '2026',
         tools: 'Adobe Illustrator, InDesign',
-        concept: 'Bản sắc Độc bản'
+        concept: 'Hồn Việt Di Sản'
       },
       images: [
         '../images/gallery-2.jpg',
+        '../images/standde.png',
         '../images/gallery-2-2.jpg',
         '../images/gallery-2-3.jpg',
-        '../images/gallery-2-4.jpg',
-        '../images/gallery-2-5.jpg'
+        '../images/gallery-2-4.jpg'
       ]
     },
     'project-3': {
-      title: 'Bao Bì Trà Thảo Mộc Vân Tràm',
+      title: 'Bao Bì Trà Thảo Mộc Làng Thái Hải',
       category: 'packaging',
       categoryLabel: 'Bao bì sản phẩm',
-      description: 'Thiết kế hộp bao bì trà cao cấp sử dụng chất liệu giấy mỹ thuật thân thiện với môi trường và họa tiết dập nổi sang trọng.',
+      description: 'Thiết kế bao bì trà thảo mộc đặc sản Làng Thái Hải sử dụng giấy mỹ thuật tái chế và dập nổi họa tiết lá trà truyền thống.',
       meta: {
         type: 'Packaging & Product Design',
         year: '2026',
         tools: 'Adobe Illustrator, Dimensions',
-        concept: 'Eco Luxury Packaging'
+        concept: 'Eco Heritage Packaging'
       },
       images: [
         '../images/gallery-3.jpg',
+        '../images/standde.png',
         '../images/gallery-3-2.jpg',
         '../images/gallery-3-3.jpg',
-        '../images/gallery-3-4.jpg',
-        '../images/gallery-3-5.jpg'
+        '../images/gallery-3-4.jpg'
       ]
     },
     'project-4': {
-      title: 'Artistic Editorial Typography',
+      title: 'Ấn Phẩm Typography Văn Hóa Thái Hải',
       category: 'poster',
       categoryLabel: 'Poster & Typography',
-      description: 'Nghiên cứu cấu trúc font chữ Serif cổ điển kết hợp tương phản hiện đại mang lại cảm xúc thị giác mạnh mẽ trên các ấn phẩm.',
+      description: 'Nghiên cứu cấu trúc kiểu chữ Serif mộc mạc kết hợp họa tiết hoa văn thổ cẩm Thái Hải trên các ấn phẩm văn hóa nghệ thuật.',
       meta: {
         type: 'Editorial Typography',
         year: '2026',
@@ -92,48 +91,67 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       images: [
         '../images/gallery-4.jpg',
+        '../images/standde.png',
         '../images/gallery-4-2.jpg',
         '../images/gallery-4-3.jpg',
-        '../images/gallery-4-4.jpg',
-        '../images/gallery-4-5.jpg'
+        '../images/gallery-4-4.jpg'
       ]
     },
     'project-5': {
-      title: 'Minh Họa Rừng Tràm Mờ Sương',
+      title: 'Minh Họa Làng Nhà Sàn Thái Hải',
       category: 'art',
       categoryLabel: 'Minh họa nghệ thuật',
-      description: 'Tác phẩm vẽ minh họa kỹ thuật số thể hiện khung cảnh thiên nhiên hoang sơ với những đường nét mạ vàng quý phái.',
+      description: 'Tác phẩm vẽ minh họa kỹ thuật số tái hiện cảnh quan làng nhà sàn Thái Hải trong không gian núi rừng sương mờ và các mảng nét mạ vàng.',
       meta: {
         type: 'Digital Art Illustration',
         year: '2026',
         tools: 'Procreate, Illustrator',
-        concept: 'Misty Forest Art'
+        concept: 'Misty Stilt Village Art'
       },
       images: [
         '../images/gallery-5.jpg',
+        '../images/standde.png',
         '../images/gallery-5-2.jpg',
         '../images/gallery-5-3.jpg',
-        '../images/gallery-5-4.jpg',
-        '../images/gallery-5-5.jpg'
+        '../images/gallery-5-4.jpg'
       ]
     },
     'project-6': {
-      title: 'Giao Diện Banner Digital Media',
+      title: 'Giao Diện Truyền Thông Banner Làng Thái Hải',
       category: 'brand',
       categoryLabel: 'Nhận diện thương hiệu',
-      description: 'Thiết kế hệ thống Banner truyền thông kỹ thuật số tối ưu hiển thị trên các nền tảng mạng xã hội và website.',
+      description: 'Thiết kế bộ Banner kỹ thuật số quảng bá du lịch sinh thái và sự kiện văn hóa Làng Thái Hải trên các kênh truyền thông số.',
       meta: {
         type: 'Digital Media Visual',
         year: '2026',
         tools: 'Adobe Photoshop, Figma',
-        concept: 'Social Media Campaign'
+        concept: 'Heritage Campaign'
       },
       images: [
         '../images/gallery-6.jpg',
+        '../images/standde.png',
         '../images/gallery-6-2.jpg',
         '../images/gallery-6-3.jpg',
-        '../images/gallery-6-4.jpg',
-        '../images/gallery-6-5.jpg'
+        '../images/gallery-6-4.jpg'
+      ]
+    },
+    'project-7': {
+      title: 'Thiết Kế Standee Khổ Dọc Làng Thái Hải',
+      category: 'brand',
+      categoryLabel: 'Standee & Quảng Cáo Dọc',
+      isStandee: true,
+      description: 'Ấn phẩm thiết kế Standee khổ dọc chuyên biệt phục vụ các sự kiện du lịch, triển lãm di sản và giới thiệu nét đẹp văn hóa Khu bảo tồn Làng nhà sàn Thái Hải.',
+      meta: {
+        type: 'Vertical Standee Design',
+        year: '2026',
+        tools: 'Adobe Illustrator, Photoshop',
+        concept: 'Khổ Dọc Di Sản'
+      },
+      images: [
+        '../images/standde.png',
+        '../images/gallery-2.jpg',
+        '../images/gallery-6.jpg',
+        '../images/gallery-1-2.jpg'
       ]
     }
   };
@@ -155,6 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* Modal & Slideshow Elements */
   const lightboxModal = document.getElementById('lightboxModal');
+  const showcaseModalCard = document.querySelector('.showcase-modal');
   const modalCloseBtn = document.getElementById('modalCloseBtn');
   const modalContactBtn = document.getElementById('modalContactBtn');
   const modalImage = document.getElementById('modalImage');
@@ -324,18 +343,22 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* --------------------------------------------------------------------------
-   * 8. PROJECT SHOWCASE MODAL & SLIDESHOW LOGIC
+   * 8. PROJECT SHOWCASE MODAL & FAIL-SAFE SLIDESHOW LOGIC
    * -------------------------------------------------------------------------- */
   const updateSlideshowUI = (index) => {
-    if (currentProjectImages.length === 0) return;
+    if (!currentProjectImages || currentProjectImages.length === 0) return;
 
     if (index < 0) index = currentProjectImages.length - 1;
     if (index >= currentProjectImages.length) index = 0;
     currentImageIndex = index;
 
+    const rawSrc = currentProjectImages[currentImageIndex];
+    const finalSrc = normalizeImgPath(rawSrc);
+
     modalImage.classList.add('fade-out');
     setTimeout(() => {
-      modalImage.src = normalizeImgPath(currentProjectImages[currentImageIndex]);
+      modalImage.src = finalSrc;
+      modalImage.alt = modalTitle.textContent || 'Tác phẩm Vân Tràm';
       modalImage.classList.remove('fade-out');
     }, 150);
 
@@ -380,20 +403,54 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  const openProjectModal = (projectId) => {
-    const data = projectsData[projectId];
-    if (!data) return;
+  const openProjectModal = (card, index) => {
+    let projectId = card.getAttribute('data-project-id');
+    if (!projectId) {
+      projectId = `project-${index + 1}`;
+    }
 
-    currentProjectImages = data.images || [];
+    let data = projectsData[projectId];
+
+    if (!data) {
+      const imgAttr = card.getAttribute('data-img') || card.querySelector('img')?.getAttribute('src') || '../images/standde.png';
+      const titleAttr = card.getAttribute('data-title') || card.querySelector('.project-title')?.textContent || 'Dự Án Vân Tràm';
+      const descAttr = card.getAttribute('data-desc') || card.querySelector('.project-desc')?.textContent || 'Mô tả tác phẩm thiết kế đồ họa.';
+      const catAttr = card.querySelector('.project-category')?.textContent || 'Nhận diện thương hiệu';
+
+      data = {
+        title: titleAttr,
+        categoryLabel: catAttr,
+        description: descAttr,
+        meta: {
+          type: 'Vertical Standee Design',
+          year: '2026',
+          tools: 'Adobe Illustrator, Photoshop',
+          concept: 'Khổ Dọc Di Sản'
+        },
+        images: [imgAttr]
+      };
+    }
+
+    // Toggle Standee Vertical Layout Class if it's the Standee Project
+    if (projectId === 'project-7' || data.isStandee || card.classList.contains('standee-card')) {
+      showcaseModalCard.classList.add('is-standee-modal');
+    } else {
+      showcaseModalCard.classList.remove('is-standee-modal');
+    }
+
+    currentProjectImages = (data.images && data.images.length > 0) ? data.images : ['../images/standde.png'];
     currentImageIndex = 0;
 
-    modalTitle.textContent = data.title;
-    modalCategory.textContent = data.categoryLabel;
-    modalDesc.textContent = data.description;
-    metaType.textContent = data.meta.type;
-    metaYear.textContent = data.meta.year;
-    metaTools.textContent = data.meta.tools;
-    metaConcept.textContent = data.meta.concept;
+    modalTitle.textContent = data.title || 'Dự Án Vân Tràm';
+    modalCategory.textContent = data.categoryLabel || 'NHẬN DIỆN THƯƠNG HIỆU';
+    modalDesc.textContent = data.description || 'Mô tả tác phẩm thiết kế đồ họa.';
+
+    if (data.meta) {
+      metaType.textContent = data.meta.type || 'Vertical Standee Design';
+      metaYear.textContent = data.meta.year || '2026';
+      metaTools.textContent = data.meta.tools || 'Adobe Illustrator, Photoshop';
+      metaConcept.textContent = data.meta.concept || 'Khổ Dọc Di Sản';
+    }
 
     renderDots(currentProjectImages.length);
     updateSlideshowUI(0);
@@ -406,13 +463,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeProjectModal = () => {
     lightboxModal.classList.remove('active');
     lightboxModal.setAttribute('aria-hidden', 'true');
+    showcaseModalCard.classList.remove('is-standee-modal');
     document.body.style.overflow = '';
   };
 
-  projectCards.forEach(card => {
+  projectCards.forEach((card, index) => {
     card.addEventListener('click', () => {
-      const projectId = card.getAttribute('data-project-id');
-      openProjectModal(projectId);
+      openProjectModal(card, index);
     });
   });
 

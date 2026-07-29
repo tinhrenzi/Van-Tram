@@ -398,7 +398,6 @@ button, input, textarea, select {
   overflow: hidden;
 }
 
-/* Background Ambient Glow */
 .hero-section::before {
   content: '';
   position: absolute;
@@ -456,7 +455,7 @@ button, input, textarea, select {
 
 .hero-title {
   font-family: var(--font-serif);
-  font-size: 3.8rem;
+  font-size: 3.6rem;
   font-weight: 800;
   line-height: 1.15;
   margin-bottom: 1.5rem;
@@ -484,7 +483,7 @@ button, input, textarea, select {
   flex-wrap: wrap;
 }
 
-/* Hero Banner Artwork Card */
+/* Hero Banner Artwork Card (740x400 Landscape Rectangle Ratio) */
 .hero-art-wrapper {
   position: relative;
 }
@@ -497,6 +496,8 @@ button, input, textarea, select {
   border: 1px solid var(--border-subtle);
   transform: perspective(1000px) rotateY(-4deg) rotateX(2deg);
   transition: var(--transition-normal);
+  aspect-ratio: 740 / 400;
+  width: 100%;
 }
 
 .hero-art-card:hover {
@@ -506,7 +507,8 @@ button, input, textarea, select {
 
 .hero-art-card img {
   width: 100%;
-  height: 480px;
+  height: 100%;
+  aspect-ratio: 740 / 400;
   object-fit: cover;
   display: block;
 }
@@ -539,13 +541,14 @@ button, input, textarea, select {
 }
 
 .hero-floating-tag .tag-info h5 {
-  font-size: 1.05rem;
+  font-size: 0.98rem;
   color: var(--text-main);
+  font-weight: 600;
 }
 
 .hero-floating-tag .tag-info p {
-  font-size: 0.85rem;
-  color: var(--text-muted);
+  font-size: 0.82rem;
+  color: var(--accent-gold);
 }
 
 /* ==========================================================================
@@ -680,7 +683,7 @@ button, input, textarea, select {
 }
 
 /* ==========================================================================
-   PROJECTS / GALLERY SECTION
+   PROJECTS / GALLERY SECTION (740x400 Ratio Cards - BẰNG NHAU 100% CẢ 7 BOX)
    ========================================================================== */
 .gallery-section {
   background: var(--bg-secondary);
@@ -749,18 +752,46 @@ button, input, textarea, select {
 .project-thumb {
   position: relative;
   overflow: hidden;
-  height: 260px;
+  aspect-ratio: 740 / 400;
+  width: 100%;
 }
 
 .project-thumb img {
   width: 100%;
   height: 100%;
+  aspect-ratio: 740 / 400;
   object-fit: cover;
   transition: var(--transition-normal);
 }
 
 .project-card:hover .project-thumb img {
   transform: scale(1.08);
+}
+
+/* Box 7 (Standee Card): KÍCH THƯỚC & TỶ LỆ KHUNG BẰNG 100% 6 BOX KIA */
+.standee-card {
+  border-color: var(--border-subtle);
+}
+
+.standee-thumb {
+  aspect-ratio: 740 / 400;
+  width: 100%;
+  height: auto;
+  background: #05080c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  overflow: hidden;
+}
+
+.standee-thumb img {
+  aspect-ratio: 740 / 400;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: var(--transition-normal);
 }
 
 .project-overlay {
@@ -842,33 +873,62 @@ button, input, textarea, select {
 }
 
 .process-card {
-  padding: 2rem 1.5rem;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
   position: relative;
   text-align: left;
 }
 
+.process-thumb {
+  width: 100%;
+  aspect-ratio: 740 / 400;
+  overflow: hidden;
+  position: relative;
+}
+
+.process-thumb img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 740 / 400;
+  object-fit: cover;
+  transition: var(--transition-normal);
+}
+
+.process-card:hover .process-thumb img {
+  transform: scale(1.08);
+}
+
+.process-body {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 .process-step-num {
   font-family: var(--font-serif);
-  font-size: 3rem;
+  font-size: 2.4rem;
   font-weight: 800;
-  color: rgba(212, 175, 55, 0.2);
+  color: rgba(212, 175, 55, 0.35);
   line-height: 1;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.75rem;
   transition: var(--transition-fast);
 }
 
 .process-card:hover .process-step-num {
   color: var(--accent-gold);
-  transform: translateY(-4px);
+  transform: translateY(-3px);
 }
 
-.process-card h3 {
-  font-size: 1.15rem;
+.process-body h3 {
+  font-size: 1.1rem;
   color: var(--text-main);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.6rem;
 }
 
-.process-card p {
+.process-body p {
   font-size: 0.88rem;
   color: var(--text-muted);
   line-height: 1.6;
@@ -1093,9 +1153,9 @@ textarea.form-control {
   visibility: visible;
 }
 
-/* Modal Content Container */
+/* Standard Horizontal Modal Container (Bố cục 2 Cột: Ảnh Bên Trái, Text Bên Phải) */
 .showcase-modal {
-  max-width: 980px;
+  max-width: 1080px;
   width: 100%;
   max-height: 90vh;
   background: var(--bg-secondary);
@@ -1105,13 +1165,48 @@ textarea.form-control {
   position: relative;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), var(--shadow-gold);
   display: grid;
-  grid-template-columns: 1.35fr 1fr;
+  grid-template-columns: 1.15fr 1fr;
   transform: scale(0.92);
   transition: var(--transition-normal);
 }
 
 .modal-overlay.active .showcase-modal {
   transform: scale(1);
+}
+
+/* SPECIAL EXTRA TALL STANDEE MODAL (CẬP NHẬT RIÊNG CHO CỬA SỔ SHOWCASE MODAL KHI CLICK) */
+.showcase-modal.is-standee-modal {
+  max-width: 1180px;
+  height: 88vh;
+  max-height: 840px;
+  grid-template-columns: 1.15fr 1fr;
+}
+
+.showcase-modal.is-standee-modal .modal-slideshow-col {
+  border-right: 1px solid var(--border-subtle);
+  border-bottom: none;
+  height: 100%;
+  min-height: 720px;
+  background: #04070a;
+  padding: 1.5rem 1rem;
+}
+
+.showcase-modal.is-standee-modal .slideshow-container {
+  height: 100%;
+  min-height: 680px;
+}
+
+.showcase-modal.is-standee-modal .slideshow-image-wrapper img {
+  max-height: 740px;
+  width: auto;
+  object-fit: contain;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.9), 0 0 30px rgba(212, 175, 55, 0.3);
+}
+
+.showcase-modal.is-standee-modal .modal-info-body {
+  padding: 2.5rem 2.2rem;
+  height: 100%;
+  overflow-y: auto;
 }
 
 /* Close Button [X] at Top-Right Corner */
@@ -1144,7 +1239,7 @@ textarea.form-control {
 
 /* Left Column: Slideshow Area */
 .modal-slideshow-col {
-  background: #080d12;
+  background: #05080c;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -1185,7 +1280,7 @@ textarea.form-control {
   object-fit: contain;
   border-radius: var(--radius-sm);
   transition: opacity 0.35s ease, transform 0.35s ease;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
 }
 
 .slideshow-image-wrapper img.fade-out {
@@ -1479,19 +1574,23 @@ textarea.form-control {
     grid-template-columns: 1fr;
   }
 
-  .showcase-modal {
+  .showcase-modal,
+  .showcase-modal.is-standee-modal {
     grid-template-columns: 1fr;
+    height: auto;
     max-height: 92vh;
     overflow-y: auto;
   }
 
-  .modal-slideshow-col {
+  .modal-slideshow-col,
+  .showcase-modal.is-standee-modal .modal-slideshow-col {
     border-right: none;
     border-bottom: 1px solid var(--border-subtle);
+    min-height: 480px;
   }
 
   .slideshow-container {
-    min-height: 320px;
+    min-height: 300px;
   }
 
   .modal-info-body {
@@ -1601,7 +1700,7 @@ textarea.form-control {
   }
 
   .slideshow-container {
-    min-height: 250px;
+    min-height: 230px;
   }
 
   .modal-title {
@@ -1610,6 +1709,10 @@ textarea.form-control {
 
   .modal-info-body {
     padding: 1.25rem 1rem;
+  }
+
+  .showcase-modal.is-standee-modal .slideshow-image-wrapper img {
+    max-height: 480px;
   }
 }
 
