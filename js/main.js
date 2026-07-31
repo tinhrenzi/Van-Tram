@@ -1,6 +1,6 @@
 /* ==========================================================================
    VÂN TRÀM - Graphic Design Portfolio
-   Main JavaScript | Pure JS Interactivity & Showcase Modal Slideshow
+   Main JavaScript | Multi-Image Slideshow Mapping 5 Real User Folders Exactly
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
    * HELPER: DYNAMIC IMAGE PATH NORMALIZATION (GITHUB PAGES & LOCAL COMPATIBILITY)
    * -------------------------------------------------------------------------- */
   const normalizeImgPath = (path) => {
-    if (!path) return '../images/gallery-1.jpg';
+    if (!path) return '../images/Bao bì/mocup 1.jpg';
     if (!window.location.pathname.includes('/html/')) {
       return path.replace(/^\.\.\/images\//, 'images/').replace(/^\.\.\//, '');
     }
@@ -18,140 +18,131 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   /* --------------------------------------------------------------------------
-   * 1. PROJECT DATA STRUCTURE (INCLUDES BOX 7 FOR STANDEE: standde.png)
+   * 1. PROJECT DATA STRUCTURE (EXACTLY 5 PROJECTS MATCHING USER'S 5 FOLDERS)
    * -------------------------------------------------------------------------- */
   const projectsData = {
+    // 1. Folder: images/Bao bì
     'project-1': {
-      title: 'Poster Vân Tràm - Sắc Tràm Tự Nhiên',
-      category: 'poster',
-      categoryLabel: 'Poster & Typography',
-      description: 'Tác phẩm thiết kế poster nghệ thuật quảng bá du lịch sinh thái Làng Thái Hải kết hợp kiểu chữ mộc mạc và họa tiết lá tràm.',
-      meta: {
-        type: 'Poster & Graphic Print',
-        year: '2026',
-        tools: 'Adobe Illustrator, Photoshop',
-        concept: 'Sắc Tràm Tự Nhiên'
-      },
-      images: [
-        '../images/gallery-1.jpg',
-        '../images/standde.png',
-        '../images/gallery-1-2.jpg',
-        '../images/gallery-1-3.jpg',
-        '../images/gallery-1-4.jpg'
-      ]
-    },
-    'project-2': {
-      title: 'Nhận Diện Thương Hiệu Làng Thái Hải',
-      category: 'brand',
-      categoryLabel: 'Nhận diện thương hiệu',
-      description: 'Thiết kế hệ thống nhận diện thương hiệu cao cấp gồm Logo biểu trưng nhà sàn Thái Hải, danh thiếp ép kim gold foil và cẩm nang thương hiệu.',
-      meta: {
-        type: 'Brand Identity System',
-        year: '2026',
-        tools: 'Adobe Illustrator, InDesign',
-        concept: 'Hồn Việt Di Sản'
-      },
-      images: [
-        '../images/gallery-2.jpg',
-        '../images/standde.png',
-        '../images/gallery-2-2.jpg',
-        '../images/gallery-2-3.jpg',
-        '../images/gallery-2-4.jpg'
-      ]
-    },
-    'project-3': {
-      title: 'Bao Bì Trà Thảo Mộc Làng Thái Hải',
+      title: 'Bao Bì Trà & Nông Sản Làng Thái Hải',
       category: 'packaging',
       categoryLabel: 'Bao bì sản phẩm',
-      description: 'Thiết kế bao bì trà thảo mộc đặc sản Làng Thái Hải sử dụng giấy mỹ thuật tái chế và dập nổi họa tiết lá trà truyền thống.',
+      description: 'Hệ thống thiết kế bao bì trà thảo mộc đặc sản, hộp quà quà tặng Làng Thái Hải với chất liệu mỹ thuật mộc mạc và hoa văn ép kim sang trọng.',
       meta: {
-        type: 'Packaging & Product Design',
+        type: 'Packaging & Box Design',
         year: '2026',
         tools: 'Adobe Illustrator, Dimensions',
         concept: 'Eco Heritage Packaging'
       },
       images: [
-        '../images/gallery-3.jpg',
-        '../images/standde.png',
-        '../images/gallery-3-2.jpg',
-        '../images/gallery-3-3.jpg',
-        '../images/gallery-3-4.jpg'
+        '../images/Bao bì/mocup 1.jpg',
+        '../images/Bao bì/moc 2.jpg',
+        '../images/Bao bì/moc 3.jpg',
+        '../images/Bao bì/mocup 4.jpg',
+        '../images/Bao bì/Mocup 5.jpg',
+        '../images/Bao bì/mocup bao bì cấp 2.jpg',
+        '../images/Bao bì/mocup.jpg'
       ]
     },
-    'project-4': {
-      title: 'Ấn Phẩm Typography Văn Hóa Thái Hải',
-      category: 'poster',
-      categoryLabel: 'Poster & Typography',
-      description: 'Nghiên cứu cấu trúc kiểu chữ Serif mộc mạc kết hợp họa tiết hoa văn thổ cẩm Thái Hải trên các ấn phẩm văn hóa nghệ thuật.',
-      meta: {
-        type: 'Editorial Typography',
-        year: '2026',
-        tools: 'Adobe InDesign, Photoshop',
-        concept: 'Typography Layout Art'
-      },
-      images: [
-        '../images/gallery-4.jpg',
-        '../images/standde.png',
-        '../images/gallery-4-2.jpg',
-        '../images/gallery-4-3.jpg',
-        '../images/gallery-4-4.jpg'
-      ]
-    },
-    'project-5': {
-      title: 'Minh Họa Làng Nhà Sàn Thái Hải',
-      category: 'art',
-      categoryLabel: 'Minh họa nghệ thuật',
-      description: 'Tác phẩm vẽ minh họa kỹ thuật số tái hiện cảnh quan làng nhà sàn Thái Hải trong không gian núi rừng sương mờ và các mảng nét mạ vàng.',
-      meta: {
-        type: 'Digital Art Illustration',
-        year: '2026',
-        tools: 'Procreate, Illustrator',
-        concept: 'Misty Stilt Village Art'
-      },
-      images: [
-        '../images/gallery-5.jpg',
-        '../images/standde.png',
-        '../images/gallery-5-2.jpg',
-        '../images/gallery-5-3.jpg',
-        '../images/gallery-5-4.jpg'
-      ]
-    },
-    'project-6': {
-      title: 'Giao Diện Truyền Thông Banner Làng Thái Hải',
+
+    // 2. Folder: images/bộ văn phòng
+    'project-2': {
+      title: 'Bộ Ấn Phẩm Văn Phòng Làng Thái Hải',
       category: 'brand',
-      categoryLabel: 'Nhận diện thương hiệu',
-      description: 'Thiết kế bộ Banner kỹ thuật số quảng bá du lịch sinh thái và sự kiện văn hóa Làng Thái Hải trên các kênh truyền thông số.',
+      categoryLabel: 'Bộ văn phòng',
+      description: 'Hệ thống nhận diện thương hiệu văn phòng gồm Kẹp file tài liệu, Phong bì thư A4, Thẻ nhân viên khổ A5/A6 mang dấu ấn văn hóa Thái Hải.',
       meta: {
-        type: 'Digital Media Visual',
+        type: 'Stationery & Office Kit',
         year: '2026',
-        tools: 'Adobe Photoshop, Figma',
-        concept: 'Heritage Campaign'
+        tools: 'Adobe Illustrator, InDesign',
+        concept: 'Heritage Corporate Kit'
       },
       images: [
-        '../images/gallery-6.jpg',
-        '../images/standde.png',
-        '../images/gallery-6-2.jpg',
-        '../images/gallery-6-3.jpg',
-        '../images/gallery-6-4.jpg'
+        '../images/bộ văn phòng/mocup kẹp.jpg',
+        '../images/bộ văn phòng/mockup a5.png',
+        '../images/bộ văn phòng/mockup a6.png',
+        '../images/bộ văn phòng/thư A4.jpg'
       ]
     },
-    'project-7': {
-      title: 'Thiết Kế Standee Khổ Dọc Làng Thái Hải',
-      category: 'brand',
-      categoryLabel: 'Standee & Quảng Cáo Dọc',
-      isStandee: true,
-      description: 'Ấn phẩm thiết kế Standee khổ dọc chuyên biệt phục vụ các sự kiện du lịch, triển lãm di sản và giới thiệu nét đẹp văn hóa Khu bảo tồn Làng nhà sàn Thái Hải.',
+
+    // 3. Folder: images/quà tặng
+    'project-3': {
+      title: 'Bộ Quà Tặng Du Lịch & Merchandise',
+      category: 'gift',
+      categoryLabel: 'Quà tặng lưu niệm',
+      description: 'Bộ sản phẩm nhận diện quà tặng du lịch Làng Thái Hải gồm Ly sứ cao cấp, Mũ lưỡi trai thêu logo và Ô che nắng họa tiết di sản.',
       meta: {
-        type: 'Vertical Standee Design',
+        type: 'Merchandise & Gift Items',
         year: '2026',
         tools: 'Adobe Illustrator, Photoshop',
-        concept: 'Khổ Dọc Di Sản'
+        concept: 'Souvenir Branding'
       },
       images: [
-        '../images/standde.png',
-        '../images/gallery-2.jpg',
-        '../images/gallery-6.jpg',
-        '../images/gallery-1-2.jpg'
+        '../images/quà tặng/ly quà tặng.png',
+        '../images/quà tặng/mũ quà tặng.png',
+        '../images/quà tặng/ô quà tặng.png'
+      ]
+    },
+
+    // 4. Folder: images/đồng phục
+    'project-4': {
+      title: 'Thiết Kế Đồng Phục & Họa Tiết Thổ Cẩm',
+      category: 'apparel',
+      categoryLabel: 'Đồng phục & Họa tiết',
+      description: 'Nghiên cứu ứng dụng hoa văn thổ cẩm dân tộc Thái vào bộ trang phục đồng phục nam nữ, kết hợp logo cách điệu sắc sảo và hiện đại.',
+      meta: {
+        type: 'Apparel & Ethnic Motif',
+        year: '2026',
+        tools: 'Adobe Illustrator, Photoshop',
+        concept: 'Heritage Uniform Design'
+      },
+      images: [
+        '../images/đồng phục/áo nam nữ.jpg',
+        '../images/đồng phục/áo nam.png',
+        '../images/đồng phục/áo nữ.png',
+        '../images/đồng phục/Vân Tràm nữ.jpg',
+        '../images/đồng phục/hoa văn áo nam.jpg',
+        '../images/đồng phục/hoa văn áo nữ.jpg',
+        '../images/đồng phục/hoa văn nam sau.jpg',
+        '../images/đồng phục/hoa văn nữ sau.jpg',
+        '../images/đồng phục/logo nam.jpg',
+        '../images/đồng phục/logo áo nam.jpg',
+        '../images/đồng phục/logo áo nữ.jpg'
+      ]
+    },
+
+    // 5. Folder: images/Truyền thông quảng cáo (Bao gồm Catalog 11 trang + Standee + Poster + Banner + Tờ rơi)
+    'project-5': {
+      title: 'Truyền Thông Quảng Cáo & Bộ Catalog Thái Hải',
+      category: 'media',
+      categoryLabel: 'Truyền thông & Catalog',
+      isStandee: true,
+      description: 'Trọn bộ ấn phẩm truyền thông quảng cáo Làng Thái Hải gồm Bộ Catalog 11 trang nghệ thuật, Standee khổ dọc, Poster di sản, Banner digital media và Tờ rơi gấp 3.',
+      meta: {
+        type: 'Catalog & Media Campaign',
+        year: '2026',
+        tools: 'Adobe InDesign, Photoshop, Illustrator',
+        concept: 'Grand Cultural Campaign'
+      },
+      images: [
+        '../images/Truyền thông quảng cáo/catalog/1.png',
+        '../images/Truyền thông quảng cáo/catalog/2.png',
+        '../images/Truyền thông quảng cáo/catalog/3.png',
+        '../images/Truyền thông quảng cáo/catalog/4.png',
+        '../images/Truyền thông quảng cáo/catalog/5.png',
+        '../images/Truyền thông quảng cáo/catalog/6.png',
+        '../images/Truyền thông quảng cáo/catalog/7.png',
+        '../images/Truyền thông quảng cáo/catalog/8.png',
+        '../images/Truyền thông quảng cáo/catalog/9.png',
+        '../images/Truyền thông quảng cáo/catalog/10.png',
+        '../images/Truyền thông quảng cáo/catalog/12.png',
+        '../images/Truyền thông quảng cáo/standde moiqa.png',
+        '../images/Truyền thông quảng cáo/mockup standee mới.png',
+        '../images/Truyền thông quảng cáo/POSTER mới.png',
+        '../images/Truyền thông quảng cáo/mockup póter moi.png',
+        '../images/Truyền thông quảng cáo/mockup banner.png',
+        '../images/Truyền thông quảng cáo/moc tờ rơi.jpg',
+        '../images/Truyền thông quảng cáo/mocup gap 3.jpg',
+        '../images/Truyền thông quảng cáo/Artboard 1.jpg'
       ]
     }
   };
@@ -343,7 +334,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* --------------------------------------------------------------------------
-   * 8. PROJECT SHOWCASE MODAL & FAIL-SAFE SLIDESHOW LOGIC
+   * 8. PROJECT SHOWCASE MODAL & SLIDESHOW LOGIC
    * -------------------------------------------------------------------------- */
   const updateSlideshowUI = (index) => {
     if (!currentProjectImages || currentProjectImages.length === 0) return;
@@ -412,7 +403,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let data = projectsData[projectId];
 
     if (!data) {
-      const imgAttr = card.getAttribute('data-img') || card.querySelector('img')?.getAttribute('src') || '../images/standde.png';
+      const imgAttr = card.getAttribute('data-img') || card.querySelector('img')?.getAttribute('src') || '../images/Bao bì/mocup 1.jpg';
       const titleAttr = card.getAttribute('data-title') || card.querySelector('.project-title')?.textContent || 'Dự Án Vân Tràm';
       const descAttr = card.getAttribute('data-desc') || card.querySelector('.project-desc')?.textContent || 'Mô tả tác phẩm thiết kế đồ họa.';
       const catAttr = card.querySelector('.project-category')?.textContent || 'Nhận diện thương hiệu';
@@ -422,23 +413,23 @@ document.addEventListener('DOMContentLoaded', () => {
         categoryLabel: catAttr,
         description: descAttr,
         meta: {
-          type: 'Vertical Standee Design',
+          type: 'Brand Identity Design',
           year: '2026',
           tools: 'Adobe Illustrator, Photoshop',
-          concept: 'Khổ Dọc Di Sản'
+          concept: 'Hồn Việt Di Sản'
         },
         images: [imgAttr]
       };
     }
 
-    // Toggle Standee Vertical Layout Class if it's the Standee Project
-    if (projectId === 'project-7' || data.isStandee || card.classList.contains('standee-card')) {
+    // Toggle Standee / Tall Media Layout Class if project-5
+    if (projectId === 'project-5' || data.isStandee || card.classList.contains('standee-card')) {
       showcaseModalCard.classList.add('is-standee-modal');
     } else {
       showcaseModalCard.classList.remove('is-standee-modal');
     }
 
-    currentProjectImages = (data.images && data.images.length > 0) ? data.images : ['../images/standde.png'];
+    currentProjectImages = (data.images && data.images.length > 0) ? data.images : ['../images/Bao bì/mocup 1.jpg'];
     currentImageIndex = 0;
 
     modalTitle.textContent = data.title || 'Dự Án Vân Tràm';
@@ -446,10 +437,10 @@ document.addEventListener('DOMContentLoaded', () => {
     modalDesc.textContent = data.description || 'Mô tả tác phẩm thiết kế đồ họa.';
 
     if (data.meta) {
-      metaType.textContent = data.meta.type || 'Vertical Standee Design';
+      metaType.textContent = data.meta.type || 'Brand Identity Design';
       metaYear.textContent = data.meta.year || '2026';
       metaTools.textContent = data.meta.tools || 'Adobe Illustrator, Photoshop';
-      metaConcept.textContent = data.meta.concept || 'Khổ Dọc Di Sản';
+      metaConcept.textContent = data.meta.concept || 'Hồn Việt Di Sản';
     }
 
     renderDots(currentProjectImages.length);
