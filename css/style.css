@@ -66,7 +66,7 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--bg-primary); /* ĐẶT MÃ MÀU NỀN CẢ TRANG WEB: #fdf9ce */
+  background-color: var(--bg-primary); /* MÀU NỀN CẢ TRANG WEB: #fdf9ce */
   color: var(--text-main);
   line-height: 1.6;
   overflow-x: hidden;
@@ -153,10 +153,10 @@ button, input, textarea, select {
 
 .section-title {
   font-family: var(--font-serif);
-  font-size: 2.75rem;
+  font-size: 2.35rem;
   font-weight: 700;
   color: var(--text-main);
-  line-height: 1.2;
+  line-height: 1.25;
   margin-bottom: 1rem;
 }
 
@@ -166,7 +166,7 @@ button, input, textarea, select {
 }
 
 .section-subtitle {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: var(--text-muted);
   max-width: 650px;
   margin: 0 auto 3rem auto;
@@ -268,19 +268,21 @@ button, input, textarea, select {
   gap: 0.75rem;
 }
 
-.brand-logo .logo-icon {
-  width: 42px;
-  height: 42px;
-  background: linear-gradient(135deg, var(--accent-gold), var(--accent-teal));
+/* BRAND LOGO IMAGE FROM THƯ MỤC Logo/logo.svg */
+.brand-logo-img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  font-family: var(--font-serif);
-  font-weight: 700;
-  font-size: 1.3rem;
-  box-shadow: 0 0 15px rgba(179, 134, 0, 0.3);
+  box-shadow: 0 0 12px rgba(179, 134, 0, 0.3);
+  border: 1px solid var(--border-subtle);
+  background: #ffffff;
+  transition: var(--transition-fast);
+}
+
+.brand-logo:hover .brand-logo-img {
+  transform: rotate(5deg) scale(1.05);
+  border-color: var(--accent-gold);
 }
 
 .brand-logo .logo-text {
@@ -387,12 +389,12 @@ button, input, textarea, select {
 }
 
 /* ==========================================================================
-   HERO / BANNER SECTION
+   HERO / BANNER SECTION (VÂN TRÀM LÀ NỔI BẬT NHẤT THƯƠNG HIỆU)
    ========================================================================== */
 .hero-section {
-  padding-top: calc(var(--header-height) + 4rem);
-  padding-bottom: 6rem;
-  min-height: 90vh;
+  padding-top: calc(var(--header-height) + 3rem);
+  padding-bottom: 5rem;
+  min-height: 85vh;
   display: flex;
   align-items: center;
   position: relative;
@@ -429,7 +431,7 @@ button, input, textarea, select {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1fr 1fr;
   gap: 3.5rem;
   align-items: center;
   position: relative;
@@ -437,44 +439,71 @@ button, input, textarea, select {
 }
 
 .hero-content {
-  max-width: 620px;
+  max-width: 600px;
 }
 
 .hero-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.4rem 1.2rem;
+  padding: 0.35rem 1.1rem;
   border-radius: 50px;
   background: rgba(179, 134, 0, 0.12);
   border: 1px solid var(--border-subtle);
   color: var(--accent-gold);
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   font-weight: 600;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
+/* TIÊU ĐỀ HERO CHỦ ĐẠO: VÂN TRÀM NỔI BẬT NHẤT */
 .hero-title {
   font-family: var(--font-serif);
-  font-size: 3.6rem;
-  font-weight: 800;
-  line-height: 1.15;
-  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
   color: var(--text-main);
 }
 
 .hero-title span {
-  background: linear-gradient(135deg, var(--text-main) 30%, var(--accent-gold) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   display: block;
 }
 
+/* HÀNG 1: VÂN TRÀM - NỔI BẬT NHẤT TOÀN BỘ TIÊU ĐỀ (BRAND HERO TITLE) */
+.hero-title .hero-line-1 {
+  font-size: 3.4rem;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  background: linear-gradient(135deg, #1c2833 0%, var(--accent-gold) 65%, #996e00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 4px 20px rgba(179, 134, 0, 0.25);
+  margin-bottom: 0.15rem;
+}
+
+/* HÀNG 2: NHẬN DIỆN THƯƠNG HIỆU - CHỮ PHỤ ĐỊNH NGHĨA */
+.hero-title .hero-line-2 {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #2c3e50;
+  letter-spacing: 0.5px;
+}
+
+/* HÀNG 3: LÀNG THÁI HẢI - ĐỨNG SAU VÂN TRÀM */
+.hero-title .highlight-title {
+  font-size: 2.1rem;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--accent-gold);
+  opacity: 0.95;
+  position: relative;
+  display: inline-block;
+}
+
 .hero-description {
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   color: var(--text-muted);
-  margin-bottom: 2.5rem;
-  line-height: 1.7;
+  margin-bottom: 2rem;
+  line-height: 1.65;
 }
 
 .hero-actions {
@@ -484,9 +513,11 @@ button, input, textarea, select {
   flex-wrap: wrap;
 }
 
-/* Hero Banner Artwork Card (740x400 Landscape Rectangle Ratio) */
+/* Hero Banner Artwork Card (650px x 350px) */
 .hero-art-wrapper {
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .hero-art-card {
@@ -497,8 +528,10 @@ button, input, textarea, select {
   border: 1px solid var(--border-subtle);
   transform: perspective(1000px) rotateY(-4deg) rotateX(2deg);
   transition: var(--transition-normal);
-  aspect-ratio: 740 / 400;
-  width: 100%;
+  width: 650px;
+  max-width: 100%;
+  height: 350px;
+  aspect-ratio: 650 / 350;
 }
 
 .hero-art-card:hover {
@@ -507,9 +540,9 @@ button, input, textarea, select {
 }
 
 .hero-art-card img {
-  width: 100%;
-  height: 100%;
-  aspect-ratio: 740 / 400;
+  width: 650px;
+  max-width: 100%;
+  height: 350px;
   object-fit: cover;
   display: block;
 }
@@ -529,16 +562,15 @@ button, input, textarea, select {
   gap: 1rem;
 }
 
-.hero-floating-tag .icon {
-  width: 42px;
-  height: 42px;
-  background: rgba(179, 134, 0, 0.15);
-  color: var(--accent-gold);
+/* FLOATING TAG LOGO IMAGE FROM THƯ MỤC Logo/logo.svg */
+.floating-tag-logo-img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
+  box-shadow: 0 0 12px rgba(179, 134, 0, 0.3);
+  border: 1px solid var(--border-subtle);
+  background: #ffffff;
 }
 
 .hero-floating-tag .tag-info h5 {
@@ -553,11 +585,11 @@ button, input, textarea, select {
 }
 
 /* ==========================================================================
-   ABOUT SECTION
+   ABOUT SECTION (HIỂN THỊ FULL 100% ẢNH POSTER NGUYÊN BẢN - CHỈ BO GÓC)
    ========================================================================== */
 .about-grid {
   display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
+  grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
 }
@@ -566,46 +598,71 @@ button, input, textarea, select {
   position: relative;
 }
 
+/* KHUNG ẢNH CHỈ BO GÓC - KHÔNG CÓ VIỀN TRẮNG - HIỂN THỊ FULL ẢNH POSTER NGUYÊN VẸN */
 .about-img-frame {
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
+  box-shadow: 0 15px 40px rgba(120, 95, 20, 0.16);
   border: 1px solid var(--border-subtle);
-  box-shadow: var(--shadow-md);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: var(--transition-normal);
 }
 
+.about-img-frame:hover {
+  border-color: var(--accent-gold);
+  box-shadow: 0 20px 45px rgba(179, 134, 0, 0.22);
+}
+
+/* ẢNH POSTER NGUYÊN BẢN 100% FULL KHÔNG CẮT - CHỈ BO GÓC TỰ NHIÊN */
 .about-img-frame img {
   width: 100%;
-  height: 460px;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: var(--radius-lg);
 }
 
+/* HUY HIỆU BADGE CÓ LOGO SVG CHÍNH HÃNG VÀ CHỮ PROJECT 2026 */
 .about-experience-badge {
   position: absolute;
   top: 25px;
   right: -20px;
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
   border: 1px solid var(--accent-gold);
-  padding: 1.2rem 1.5rem;
+  padding: 1.1rem 1.4rem;
   border-radius: var(--radius-md);
   text-align: center;
   box-shadow: var(--shadow-gold);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
 }
 
-.about-experience-badge .num {
-  font-family: var(--font-serif);
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: var(--accent-gold);
-  line-height: 1;
+.about-badge-logo-img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(179, 134, 0, 0.25);
+  border: 1px solid var(--border-subtle);
+  background: #ffffff;
+  margin-bottom: 0.35rem;
 }
 
 .about-experience-badge .label {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: var(--text-muted);
-  margin-top: 0.3rem;
+  color: var(--accent-gold);
 }
 
 .about-text-content .lead-text {
@@ -768,7 +825,7 @@ button, input, textarea, select {
   transform: scale(1.08);
 }
 
-/* Box 7 (Standee Card) */
+/* Box 5 (Standee & Media Card) */
 .standee-card {
   border-color: var(--border-subtle);
 }
@@ -1537,11 +1594,16 @@ textarea.form-control {
    MEDIA QUERIES (RESPONSIVE BREAKPOINTS: 1200px, 992px, 768px, 576px, 400px)
    ========================================================================== */
 @media screen and (max-width: 1200px) {
-  .hero-title {
-    font-size: 3.2rem;
-  }
+  .hero-title .hero-line-1 { font-size: 2.8rem; }
+  .hero-title .hero-line-2 { font-size: 1.6rem; }
+  .hero-title .highlight-title { font-size: 1.8rem; }
   .projects-grid {
     gap: 1.5rem;
+  }
+  .hero-art-card,
+  .hero-art-card img {
+    width: 100%;
+    height: 350px;
   }
 }
 
@@ -1553,13 +1615,17 @@ textarea.form-control {
     gap: 3rem;
   }
 
+  .hero-art-card,
+  .hero-art-card img {
+    width: 100%;
+    height: 320px;
+  }
+
   .hero-content {
     margin: 0 auto;
   }
 
-  .hero-title {
-    font-size: 2.8rem;
-  }
+  .hero-title .hero-line-1 { font-size: 2.5rem; }
 
   .hero-actions {
     justify-content: center;
@@ -1633,11 +1699,7 @@ textarea.form-control {
   }
 
   .section-title {
-    font-size: 2.2rem;
-  }
-
-  .hero-title {
-    font-size: 2.4rem;
+    font-size: 2rem;
   }
 
   .about-pillars {
@@ -1678,21 +1740,14 @@ textarea.form-control {
     padding: 4rem 0;
   }
 
-  .hero-title {
-    font-size: 2rem;
-  }
+  .hero-title .hero-line-1 { font-size: 2.2rem; }
+  .hero-title .hero-line-2 { font-size: 1.4rem; }
+  .hero-title .highlight-title { font-size: 1.6rem; }
 
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .process-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .stats-counter-grid {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
+  .hero-art-card,
+  .hero-art-card img {
+    width: 100%;
+    height: 240px;
   }
 
   .hero-floating-tag {
@@ -1726,11 +1781,11 @@ textarea.form-control {
 
 /* Extra Small Mobile (max-width: 400px) */
 @media screen and (max-width: 400px) {
-  .hero-title {
-    font-size: 1.75rem;
-  }
+  .hero-title .hero-line-1 { font-size: 1.9rem; }
+  .hero-title .hero-line-2 { font-size: 1.2rem; }
+  .hero-title .highlight-title { font-size: 1.4rem; }
   .section-title {
-    font-size: 1.85rem;
+    font-size: 1.75rem;
   }
   .filter-tabs {
     gap: 0.4rem;

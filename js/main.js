@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ]
     },
 
-    // 4. Folder: images/đồng phục
+    // 4. Folder: images/đồng phục (ẢNH MỚI: mockup đồng phục.png)
     'project-4': {
       title: 'Thiết Kế Đồng Phục & Họa Tiết Thổ Cẩm',
       category: 'apparel',
@@ -96,34 +96,26 @@ document.addEventListener('DOMContentLoaded', () => {
         concept: 'Heritage Uniform Design'
       },
       images: [
-        '../images/đồng phục/áo nam nữ.jpg',
-        '../images/đồng phục/áo nam.png',
-        '../images/đồng phục/áo nữ.png',
-        '../images/đồng phục/Vân Tràm nữ.jpg',
-        '../images/đồng phục/hoa văn áo nam.jpg',
-        '../images/đồng phục/hoa văn áo nữ.jpg',
-        '../images/đồng phục/hoa văn nam sau.jpg',
-        '../images/đồng phục/hoa văn nữ sau.jpg',
-        '../images/đồng phục/logo nam.jpg',
-        '../images/đồng phục/logo áo nam.jpg',
-        '../images/đồng phục/logo áo nữ.jpg'
+        '../images/đồng phục/mockup đồng phục.png'
       ]
     },
 
-    // 5. Folder: images/Truyền thông quảng cáo (Bao gồm Catalog 11 trang + Standee + Poster + Banner + Tờ rơi)
+    // 5. Folder: images/Truyền thông quảng cáo
     'project-5': {
       title: 'Truyền Thông Quảng Cáo & Bộ Catalog Thái Hải',
       category: 'media',
       categoryLabel: 'Truyền thông & Catalog',
       isStandee: true,
-      description: 'Trọn bộ ấn phẩm truyền thông quảng cáo Làng Thái Hải gồm Bộ Catalog 11 trang nghệ thuật, Standee khổ dọc, Poster di sản, Banner digital media và Tờ rơi gấp 3.',
+      description: 'Trọn bộ ấn phẩm truyền thông quảng cáo Làng Thái Hải gồm Standee khổ dọc thiết kế mới, Bộ Catalog 11 trang nghệ thuật, Poster di sản, Banner digital media và Tờ rơi gấp 3.',
       meta: {
-        type: 'Catalog & Media Campaign',
+        type: 'Standee & Catalog Campaign',
         year: '2026',
         tools: 'Adobe InDesign, Photoshop, Illustrator',
         concept: 'Grand Cultural Campaign'
       },
       images: [
+        '../images/Truyền thông quảng cáo/standde moiqa.png',
+        '../images/Truyền thông quảng cáo/mockup standee mới.png',
         '../images/Truyền thông quảng cáo/catalog/1.png',
         '../images/Truyền thông quảng cáo/catalog/2.png',
         '../images/Truyền thông quảng cáo/catalog/3.png',
@@ -135,8 +127,6 @@ document.addEventListener('DOMContentLoaded', () => {
         '../images/Truyền thông quảng cáo/catalog/9.png',
         '../images/Truyền thông quảng cáo/catalog/10.png',
         '../images/Truyền thông quảng cáo/catalog/12.png',
-        '../images/Truyền thông quảng cáo/standde moiqa.png',
-        '../images/Truyền thông quảng cáo/mockup standee mới.png',
         '../images/Truyền thông quảng cáo/POSTER mới.png',
         '../images/Truyền thông quảng cáo/mockup póter moi.png',
         '../images/Truyền thông quảng cáo/mockup banner.png',
