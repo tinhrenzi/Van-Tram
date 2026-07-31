@@ -16,7 +16,8 @@
   --bg-glass: rgba(253, 249, 206, 0.94); /* Nền Header thanh điều hướng */
   --bg-modal: rgba(15, 20, 26, 0.85);   /* Nền tối làm nổi bật cửa sổ Showcase Modal */
   
-  --accent-gold: #b38600;         /* Màu vàng son sang trọng trên nền sáng */
+  --accent-red: #8d1e1f;          /* MÀU ĐỎ THẪM LOGO (#8d1e1f) */
+  --accent-gold: #b38600;         /* Màu vàng son phụ trợ */
   --accent-gold-light: #cfa11d;
   --accent-gold-glow: rgba(179, 134, 0, 0.16);
   --accent-teal: #1a4d4b;
@@ -92,7 +93,7 @@ body {
 
 /* --- Selection & Typography --- */
 ::selection {
-  background: var(--accent-gold);
+  background: var(--accent-red);
   color: #ffffff;
 }
 
@@ -160,16 +161,20 @@ button, input, textarea, select {
   margin-bottom: 1rem;
 }
 
+/* CHỮ NHẤN TRONG SECTION TITLE (DÙNG CHUNG MÀU VÀNG NGHỆ THUẬT VỚI LÀNG THÁI HẢI) */
 .section-title span {
-  color: var(--text-gold);
+  color: var(--accent-gold);
   font-style: italic;
 }
 
+/* CÂU PHỤ TIÊU ĐỀ: TĂNG FONT SIZE VÀ FONT WEIGHT THEO YÊU CẦU */
 .section-subtitle {
-  font-size: 1.05rem;
-  color: var(--text-muted);
-  max-width: 650px;
+  font-size: 1.18rem;        /* TĂNG KÍCH THƯỚC CHỮ NỔI BẬT */
+  font-weight: 600;          /* ĐỘ ĐẬM SEMI-BOLD ĐẸP SẮC NẾT */
+  color: var(--text-main);   /* MÀU ĐEN SẮC NẾT */
+  max-width: 750px;
   margin: 0 auto 3rem auto;
+  line-height: 1.6;
 }
 
 .text-center {
@@ -274,7 +279,7 @@ button, input, textarea, select {
   height: 44px;
   object-fit: contain;
   border-radius: 50%;
-  box-shadow: 0 0 12px rgba(179, 134, 0, 0.3);
+  box-shadow: 0 0 12px rgba(141, 30, 31, 0.3);
   border: 1px solid var(--border-subtle);
   background: #ffffff;
   transition: var(--transition-fast);
@@ -282,19 +287,29 @@ button, input, textarea, select {
 
 .brand-logo:hover .brand-logo-img {
   transform: rotate(5deg) scale(1.05);
-  border-color: var(--accent-gold);
+  border-color: var(--accent-red);
 }
 
-.brand-logo .logo-text {
+/* CHỈ THAY ĐỔI MÀU CẢ 2 CHỮ VÂN TRÀM TRÊN HEADER THÀNH MÀU ĐỎ THẪM LOGO #8d1e1f */
+.header .brand-logo .logo-text,
+.header .brand-logo .logo-text .van,
+.header .brand-logo .logo-text .tram {
   font-family: var(--font-serif);
   font-size: 1.6rem;
   font-weight: 700;
-  color: var(--text-main);
   letter-spacing: 1px;
+  color: #8d1e1f; /* MÀU ĐỎ THẪM ĐỒNG BỘ TRÊN HEADER */
 }
 
-.brand-logo .logo-text span {
-  color: var(--accent-gold);
+/* Footer Brand Logo Text */
+.footer-brand .brand-logo .logo-text,
+.footer-brand .brand-logo .logo-text .van,
+.footer-brand .brand-logo .logo-text .tram {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #8d1e1f;
 }
 
 /* Desktop Nav */
@@ -499,11 +514,15 @@ button, input, textarea, select {
   display: inline-block;
 }
 
+/* CÂU MÔ TẢ HERO: ĐÃ ĐỒNG BỘ FONT-WEIGHT 500, IN NGHIÊNG, MÀU #111a24 GIỐNG CÂU CHUYỆN THƯƠNG HIỆU */
 .hero-description {
-  font-size: 1.05rem;
-  color: var(--text-muted);
+  font-family: var(--font-sans);
+  font-size: 1.02rem;
+  font-weight: 500;
+  font-style: italic;
+  color: #111a24;
   margin-bottom: 2rem;
-  line-height: 1.65;
+  line-height: 1.7;
 }
 
 .hero-actions {
@@ -585,7 +604,7 @@ button, input, textarea, select {
 }
 
 /* ==========================================================================
-   ABOUT SECTION (HIỂN THỊ FULL 100% ẢNH POSTER NGUYÊN BẢN - CHỈ BO GÓC)
+   ABOUT SECTION (HIỂN THỊ FULL 100% ẢNH POSTER NGUYÊN BẢN - CHỮ ĐẬM SẮC NẾT FONT WEIGHT 500 & IN NGHIÊNG TRONG NGOẶC KÉP)
    ========================================================================== */
 .about-grid {
   display: grid;
@@ -627,10 +646,10 @@ button, input, textarea, select {
   border-radius: var(--radius-lg);
 }
 
-/* HUY HIỆU BADGE CÓ LOGO SVG CHÍNH HÃNG VÀ CHỮ PROJECT 2026 */
+/* HUY HIỆU BADGE CÓ LOGO SVG CHÍNH HÃNG VÀ CHỮ PROJECT 2026 (TOP -35PX) */
 .about-experience-badge {
   position: absolute;
-  top: 25px;
+  top: -35px;
   right: -20px;
   background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(10px);
@@ -665,17 +684,16 @@ button, input, textarea, select {
   color: var(--accent-gold);
 }
 
-.about-text-content .lead-text {
-  font-size: 1.15rem;
-  color: var(--text-gold);
-  font-family: var(--font-serif);
-  margin-bottom: 1.25rem;
-  line-height: 1.6;
-}
-
+/* NỘI DUNG VĂN BẢN VỀ DỰ ÁN - ĐẶT TRONG "" VÀ ĐỂ CHỮ NGHIÊNG FONT-WEIGHT 500 */
+.about-text-content .lead-text,
 .about-text-content p {
-  color: var(--text-muted);
-  margin-bottom: 2rem;
+  font-family: var(--font-sans);
+  font-size: 1.02rem;
+  font-weight: 500;
+  font-style: italic; /* ĐÃ ĐỂ CHỮ NGHIÊNG THEO YÊU CẦU */
+  color: #111a24;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
 }
 
 /* Pillars List */
