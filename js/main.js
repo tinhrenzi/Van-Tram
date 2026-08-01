@@ -100,25 +100,46 @@ document.addEventListener('DOMContentLoaded', () => {
       ]
     },
 
-    // 5. Folder: images/Truyền thông quảng cáo
+    // 5. Folder: images/Truyền thông quảng cáo (Standee & Media Campaign)
     'project-5': {
-      title: 'Truyền Thông Quảng Cáo & Bộ Catalog Thái Hải',
+      title: 'Ấn Phẩm Truyền Thông & Banner Thái Hải',
       category: 'media',
-      categoryLabel: 'Truyền thông & Catalog',
+      categoryLabel: 'Ấn phẩm truyền thông',
       isStandee: true,
-      description: 'Trọn bộ ấn phẩm truyền thông quảng cáo Làng Thái Hải gồm Standee khổ dọc thiết kế mới, Bộ Catalog 11 trang nghệ thuật, Poster di sản, Banner digital media và Tờ rơi gấp 3.',
+      description: 'Trọn bộ ấn phẩm truyền thông quảng cáo Làng Thái Hải gồm Standee khổ dọc thiết kế mới, Poster di sản, Banner digital media và Tờ rơi gấp 3.',
       meta: {
-        type: 'Standee & Catalog Campaign',
+        type: 'Standee & Media Campaign',
         year: '2026',
-        tools: 'Adobe InDesign, Photoshop, Illustrator',
-        concept: 'Grand Cultural Campaign'
+        tools: 'Adobe Photoshop, Illustrator',
+        concept: 'Cultural Media Campaign'
       },
       images: [
         '../images/Truyền thông quảng cáo/standde moiqa.png',
         '../images/Truyền thông quảng cáo/mockup standee mới.png',
+        '../images/Truyền thông quảng cáo/POSTER mới.png',
+        '../images/Truyền thông quảng cáo/mockup póter moi.png',
+        '../images/Truyền thông quảng cáo/mockup banner.png',
+        '../images/Truyền thông quảng cáo/moc tờ rơi.jpg',
+        '../images/Truyền thông quảng cáo/mocup gap 3.jpg',
+        '../images/Truyền thông quảng cáo/Artboard 1.jpg'
+      ]
+    },
+
+    // 6. Separate Catalog Box: images/Truyền thông quảng cáo/catalog
+    'project-6': {
+      title: 'Bộ Catalog 10 Trang Nghệ Thuật Thái Hải',
+      category: 'media',
+      categoryLabel: 'Bộ Catalog Brandbook',
+      description: 'Trọn bộ Catalog Cẩm nang thương hiệu 10 trang nghệ thuật độc đáo, trình bày quy chuẩn hệ thống nhận diện di sản Làng Thái Hải.',
+      meta: {
+        type: 'Catalog & Brandbook Design',
+        year: '2026',
+        tools: 'Adobe InDesign, Illustrator',
+        concept: 'Heritage Catalog'
+      },
+      images: [
         '../images/Truyền thông quảng cáo/catalog/ct-01.png',
         '../images/Truyền thông quảng cáo/catalog/ct-02.png',
-        '../images/Truyền thông quảng cáo/catalog/ct-03.png',
         '../images/Truyền thông quảng cáo/catalog/ct-04.png',
         '../images/Truyền thông quảng cáo/catalog/ct-05.png',
         '../images/Truyền thông quảng cáo/catalog/ct-06.png',
@@ -126,13 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
         '../images/Truyền thông quảng cáo/catalog/ct-08.png',
         '../images/Truyền thông quảng cáo/catalog/ct-09.png',
         '../images/Truyền thông quảng cáo/catalog/ct-10.png',
-        '../images/Truyền thông quảng cáo/catalog/ct-11.png',
-        '../images/Truyền thông quảng cáo/POSTER mới.png',
-        '../images/Truyền thông quảng cáo/mockup póter moi.png',
-        '../images/Truyền thông quảng cáo/mockup banner.png',
-        '../images/Truyền thông quảng cáo/moc tờ rơi.jpg',
-        '../images/Truyền thông quảng cáo/mocup gap 3.jpg',
-        '../images/Truyền thông quảng cáo/Artboard 1.jpg'
+        '../images/Truyền thông quảng cáo/catalog/ct-11.png'
       ]
     }
   };
