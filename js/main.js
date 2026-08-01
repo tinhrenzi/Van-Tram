@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
    * 1. PROJECT DATA STRUCTURE (EXACTLY 5 PROJECTS MATCHING USER'S 5 FOLDERS)
    * -------------------------------------------------------------------------- */
   const projectsData = {
-    // 1. Folder: images/Bao bì
+    // 1. Folder: images/Bao bì (Bao Bì Sản Phẩm - Trọn bộ 9 ảnh)
     'project-1': {
       title: 'Bao Bì Làng Thái Hải',
       category: 'packaging',
@@ -38,11 +38,15 @@ document.addEventListener('DOMContentLoaded', () => {
         '../images/Bao bì/2.jpg',
         '../images/Bao bì/3.jpg',
         '../images/Bao bì/4.jpg',
-        '../images/Bao bì/5.jpg'
+        '../images/Bao bì/5.jpg',
+        '../images/Bao bì/6.jpg',
+        '../images/Bao bì/7.png',
+        '../images/Bao bì/8.jpg',
+        '../images/Bao bì/9.png'
       ]
     },
 
-    // 2. Folder: images/bộ văn phòng
+    // 2. Folder: images/bộ văn phòng (Bộ Ấn Phẩm Văn Phòng - Trọn bộ 13 ảnh)
     'project-2': {
       title: 'Bộ Ấn Phẩm Văn Phòng Làng Thái Hải',
       category: 'brand',
@@ -63,11 +67,15 @@ document.addEventListener('DOMContentLoaded', () => {
         '../images/bộ văn phòng/6.png',
         '../images/bộ văn phòng/7.png',
         '../images/bộ văn phòng/8.jpg',
-        '../images/bộ văn phòng/9.jpg'
+        '../images/bộ văn phòng/9.jpg',
+        '../images/bộ văn phòng/mockup a5.png',
+        '../images/bộ văn phòng/mockup a6.png',
+        '../images/bộ văn phòng/mocup kẹp.jpg',
+        '../images/bộ văn phòng/thư A4.jpg'
       ]
     },
 
-    // 3. Dedicated BrandBook Box: images/BrandBook/color up.pdf
+    // 3. Dedicated BrandBook Box: ONLY PDF (images/BrandBook/color up.pdf)
     'project-3': {
       title: 'BrandBook',
       category: 'brand',
@@ -80,15 +88,10 @@ document.addEventListener('DOMContentLoaded', () => {
         tools: 'Adobe InDesign, Illustrator',
         concept: 'Heritage BrandBook'
       },
-      images: [
-        '../images/Bao bì/9.png',
-        '../images/Bao bì/7.png',
-        '../images/Bao bì/8.jpg',
-        '../images/Bao bì/6.jpg'
-      ]
+      images: []
     },
 
-    // 4. Folder: images/đồng phục & quà tặng
+    // 4. Folder: images/đồng phục & quà tặng (Trọn bộ 6 ảnh)
     'project-4': {
       title: 'Thiết Kế Đồng Phục & Quà Tặng',
       category: 'apparel',
@@ -110,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ]
     },
 
-    // 5. Folder: images/Truyền thông quảng cáo (Standee & Media Campaign)
+    // 5. Folder: images/Truyền thông quảng cáo (Trọn bộ 9 ảnh)
     'project-5': {
       title: 'Ấn Phẩm Truyền Thông & Banner Thái Hải',
       category: 'media',
@@ -128,6 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
         '../images/Truyền thông quảng cáo/mockup standee mới.png',
         '../images/Truyền thông quảng cáo/POSTER mới.png',
         '../images/Truyền thông quảng cáo/mockup póter moi.png',
+        '../images/Truyền thông quảng cáo/BANNER.png',
         '../images/Truyền thông quảng cáo/mockup banner.png',
         '../images/Truyền thông quảng cáo/moc tờ rơi.jpg',
         '../images/Truyền thông quảng cáo/mocup gap 3.jpg',
@@ -135,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ]
     },
 
-    // 6. Separate Catalogue Box: images/Truyền thông quảng cáo/câtlo
+    // 6. Separate Catalogue Box: images/Truyền thông quảng cáo/câtlo (Trọn bộ 15 trang)
     'project-6': {
       title: 'Bộ Catalogue',
       category: 'media',
