@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
    * 1. PROJECT DATA STRUCTURE (EXACTLY 5 PROJECTS MATCHING USER'S 5 FOLDERS)
    * -------------------------------------------------------------------------- */
   const projectsData = {
-    // 1. Folder: images/Bao bì
+    // 1. Folder: images/Bao bì (Bao Bì Trà & Nông Sản)
     'project-1': {
       title: 'Bao Bì Trà & Nông Sản Làng Thái Hải',
       category: 'packaging',
@@ -34,17 +34,15 @@ document.addEventListener('DOMContentLoaded', () => {
         concept: 'Eco Heritage Packaging'
       },
       images: [
-        '../images/Bao bì/mocup 1.jpg',
-        '../images/Bao bì/moc 2.jpg',
-        '../images/Bao bì/moc 3.jpg',
-        '../images/Bao bì/mocup 4.jpg',
-        '../images/Bao bì/Mocup 5.jpg',
-        '../images/Bao bì/mocup bao bì cấp 2.jpg',
-        '../images/Bao bì/mocup.jpg'
+        '../images/Bao bì/1.jpg',
+        '../images/Bao bì/2.jpg',
+        '../images/Bao bì/3.jpg',
+        '../images/Bao bì/4.jpg',
+        '../images/Bao bì/5.jpg'
       ]
     },
 
-    // 2. Folder: images/bộ văn phòng
+    // 2. Folder: images/bộ văn phòng (Bộ Ấn Phẩm Văn Phòng)
     'project-2': {
       title: 'Bộ Ấn Phẩm Văn Phòng Làng Thái Hải',
       category: 'brand',
@@ -57,46 +55,57 @@ document.addEventListener('DOMContentLoaded', () => {
         concept: 'Heritage Corporate Kit'
       },
       images: [
-        '../images/bộ văn phòng/mocup kẹp.jpg',
-        '../images/bộ văn phòng/mockup a5.png',
-        '../images/bộ văn phòng/mockup a6.png',
-        '../images/bộ văn phòng/thư A4.jpg'
+        '../images/bộ văn phòng/1.png',
+        '../images/bộ văn phòng/2.png',
+        '../images/bộ văn phòng/3.png',
+        '../images/bộ văn phòng/4.png',
+        '../images/bộ văn phòng/5.jpg',
+        '../images/bộ văn phòng/6.png',
+        '../images/bộ văn phòng/7.png',
+        '../images/bộ văn phòng/8.jpg',
+        '../images/bộ văn phòng/9.jpg'
       ]
     },
 
-    // 3. Folder: images/quà tặng
+    // 3. Folder: images/Bao bì (Bộ Nhận Diện Hộp Quà & Nhãn Mác)
     'project-3': {
-      title: 'Bộ Quà Tặng Du Lịch & Merchandise',
-      category: 'gift',
-      categoryLabel: 'Quà tặng lưu niệm',
-      description: 'Bộ sản phẩm nhận diện quà tặng du lịch Làng Thái Hải gồm Ly sứ cao cấp, Mũ lưỡi trai thêu logo và Ô che nắng họa tiết di sản.',
+      title: 'Bộ Nhận Diện Hộp Quà & Nhãn Mác Thái Hải',
+      category: 'packaging',
+      categoryLabel: 'Bao bì & Hộp quà',
+      description: 'Thiết kế nhãn mác sản phẩm và hộp quà tặng cao cấp di sản Làng Thái Hải.',
       meta: {
-        type: 'Merchandise & Gift Items',
+        type: 'Gift Box & Label Design',
         year: '2026',
         tools: 'Adobe Illustrator, Photoshop',
-        concept: 'Souvenir Branding'
+        concept: 'Premium Packaging'
       },
       images: [
+        '../images/Bao bì/9.png',
+        '../images/Bao bì/7.png',
+        '../images/Bao bì/8.jpg',
+        '../images/Bao bì/6.jpg'
+      ]
+    },
+
+    // 4. Folder: images/đồng phục & quà tặng (Đồng Phục & Quà Tặng Merchandise)
+    'project-4': {
+      title: 'Thiết Kế Đồng Phục & Quà Tặng Merchandise',
+      category: 'apparel',
+      categoryLabel: 'Đồng phục & Quà tặng',
+      description: 'Bộ sưu tập đồng phục trang phục nam nữ kết hợp hoa văn thổ cẩm và các ấn phẩm quà tặng du lịch (Ly sứ, Mũ thêu, Ô che nắng di sản).',
+      meta: {
+        type: 'Apparel & Merchandise',
+        year: '2026',
+        tools: 'Adobe Illustrator, Photoshop',
+        concept: 'Heritage Uniform & Gift'
+      },
+      images: [
+        '../images/đồng phục/1.png',
+        '../images/đồng phục/2.png',
+        '../images/đồng phục/3.png',
         '../images/quà tặng/ly quà tặng.png',
         '../images/quà tặng/mũ quà tặng.png',
         '../images/quà tặng/ô quà tặng.png'
-      ]
-    },
-
-    // 4. Folder: images/đồng phục (ẢNH MỚI: mockup đồng phục.png)
-    'project-4': {
-      title: 'Thiết Kế Đồng Phục & Họa Tiết Thổ Cẩm',
-      category: 'apparel',
-      categoryLabel: 'Đồng phục & Họa tiết',
-      description: 'Nghiên cứu ứng dụng hoa văn thổ cẩm dân tộc Thái vào bộ trang phục đồng phục nam nữ, kết hợp logo cách điệu sắc sảo và hiện đại.',
-      meta: {
-        type: 'Apparel & Ethnic Motif',
-        year: '2026',
-        tools: 'Adobe Illustrator, Photoshop',
-        concept: 'Heritage Uniform Design'
-      },
-      images: [
-        '../images/đồng phục/mockup đồng phục.png'
       ]
     },
 
@@ -125,29 +134,34 @@ document.addEventListener('DOMContentLoaded', () => {
       ]
     },
 
-    // 6. Separate Catalog Box: images/Truyền thông quảng cáo/catalog
+    // 6. Separate Catalogue Box: images/Truyền thông quảng cáo/câtlo
     'project-6': {
-      title: 'Bộ Catalog 10 Trang Nghệ Thuật Thái Hải',
+      title: 'Bộ Catalogue 15 Trang Nghệ Thuật Thái Hải',
       category: 'media',
-      categoryLabel: 'Bộ Catalog Brandbook',
-      description: 'Trọn bộ Catalog Cẩm nang thương hiệu 10 trang nghệ thuật độc đáo, trình bày quy chuẩn hệ thống nhận diện di sản Làng Thái Hải.',
+      categoryLabel: 'Bộ Catalogue Brandbook',
+      description: 'Trọn bộ Catalogue Cẩm nang thương hiệu 15 trang nghệ thuật độc đáo, trình bày quy chuẩn hệ thống nhận diện di sản Làng Thái Hải.',
       meta: {
-        type: 'Catalog & Brandbook Design',
+        type: 'Catalogue & Brandbook Design',
         year: '2026',
         tools: 'Adobe InDesign, Illustrator',
-        concept: 'Heritage Catalog'
+        concept: 'Heritage Catalogue'
       },
       images: [
-        '../images/Truyền thông quảng cáo/catalog/ct-01.png',
-        '../images/Truyền thông quảng cáo/catalog/ct-02.png',
-        '../images/Truyền thông quảng cáo/catalog/ct-04.png',
-        '../images/Truyền thông quảng cáo/catalog/ct-05.png',
-        '../images/Truyền thông quảng cáo/catalog/ct-06.png',
-        '../images/Truyền thông quảng cáo/catalog/ct-07.png',
-        '../images/Truyền thông quảng cáo/catalog/ct-08.png',
-        '../images/Truyền thông quảng cáo/catalog/ct-09.png',
-        '../images/Truyền thông quảng cáo/catalog/ct-10.png',
-        '../images/Truyền thông quảng cáo/catalog/ct-11.png'
+        '../images/Truyền thông quảng cáo/câtlo/1.png',
+        '../images/Truyền thông quảng cáo/câtlo/2.png',
+        '../images/Truyền thông quảng cáo/câtlo/3.png',
+        '../images/Truyền thông quảng cáo/câtlo/4.png',
+        '../images/Truyền thông quảng cáo/câtlo/5.png',
+        '../images/Truyền thông quảng cáo/câtlo/6.png',
+        '../images/Truyền thông quảng cáo/câtlo/7.png',
+        '../images/Truyền thông quảng cáo/câtlo/8.png',
+        '../images/Truyền thông quảng cáo/câtlo/9.png',
+        '../images/Truyền thông quảng cáo/câtlo/10.png',
+        '../images/Truyền thông quảng cáo/câtlo/11.png',
+        '../images/Truyền thông quảng cáo/câtlo/12.png',
+        '../images/Truyền thông quảng cáo/câtlo/13.png',
+        '../images/Truyền thông quảng cáo/câtlo/14.png',
+        '../images/Truyền thông quảng cáo/câtlo/15.png'
       ]
     }
   };
