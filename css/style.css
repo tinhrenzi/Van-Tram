@@ -617,7 +617,7 @@ button, input, textarea, select {
   position: relative;
 }
 
-/* KHUNG ẢNH CHỈ BO GÓC - KHÔNG CÓ VIỀN TRẮNG - HIỂN THỊ FULL ẢNH POSTER NGUYÊN VẸN */
+/* KHUNG ẢNH CHỈ BO GÓC - KHÔNG CÓ VIỀN TRẮNG - HIỂN THỊ FULL ẢNH NGUYÊN BẢN */
 .about-img-frame {
   position: relative;
   border-radius: var(--radius-lg);
@@ -637,7 +637,7 @@ button, input, textarea, select {
   box-shadow: 0 20px 45px rgba(179, 134, 0, 0.22);
 }
 
-/* ẢNH POSTER NGUYÊN BẢN 100% FULL KHÔNG CẮT - CHỈ BO GÓC TỰ NHIÊN */
+/* ẢNH POSTER & ARTBOARD NGUYÊN BẢN 100% FULL KHÔNG CẮT - TỰ NHIÊN */
 .about-img-frame img {
   width: 100%;
   height: auto;
@@ -987,14 +987,14 @@ button, input, textarea, select {
   font-family: var(--font-serif);
   font-size: 2.4rem;
   font-weight: 800;
-  color: rgba(179, 134, 0, 0.4);
+  color: #8d1e1f;
   line-height: 1;
   margin-bottom: 0.75rem;
   transition: var(--transition-fast);
 }
 
 .process-card:hover .process-step-num {
-  color: var(--accent-gold);
+  color: #8d1e1f;
   transform: translateY(-3px);
 }
 
