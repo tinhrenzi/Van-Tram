@@ -73,11 +73,11 @@ document.addEventListener('DOMContentLoaded', () => {
       category: 'brand',
       categoryLabel: 'BrandBook',
       pdfUrl: '../images/BrandBook/color up.pdf',
-      description: 'File BrandBook PDF quy chuẩn di sản Thái Hải.',
+      description: 'Trọn bộ Cẩm nang nhận diện thương hiệu BrandBook trình bày chi tiết quy chuẩn hệ thống nhận diện di sản Làng Thái Hải.',
       meta: {
-        type: 'BrandBook Design (PDF)',
+        type: 'BrandBook Design',
         year: '2026',
-        tools: 'Adobe InDesign, Illustrator (color up.pdf)',
+        tools: 'Adobe InDesign, Illustrator',
         concept: 'Heritage BrandBook'
       },
       images: [
