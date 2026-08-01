@@ -21,12 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
    * 1. PROJECT DATA STRUCTURE (EXACTLY 5 PROJECTS MATCHING USER'S 5 FOLDERS)
    * -------------------------------------------------------------------------- */
   const projectsData = {
-    // 1. Folder: images/Bao bì (Bao Bì Trà & Nông Sản)
+    // 1. Folder: images/Bao bì
     'project-1': {
-      title: 'Bao Bì Trà & Nông Sản Làng Thái Hải',
+      title: 'Bao Bì Làng Thái Hải',
       category: 'packaging',
       categoryLabel: 'Bao bì sản phẩm',
-      description: 'Hệ thống thiết kế bao bì trà thảo mộc đặc sản, hộp quà quà tặng Làng Thái Hải với chất liệu mỹ thuật mộc mạc và hoa văn ép kim sang trọng.',
+      description: 'Trải nghiệm bao bì quà tặng văn hóa độc đáo & sang trọng.',
       meta: {
         type: 'Packaging & Box Design',
         year: '2026',
@@ -42,12 +42,12 @@ document.addEventListener('DOMContentLoaded', () => {
       ]
     },
 
-    // 2. Folder: images/bộ văn phòng (Bộ Ấn Phẩm Văn Phòng)
+    // 2. Folder: images/bộ văn phòng
     'project-2': {
       title: 'Bộ Ấn Phẩm Văn Phòng Làng Thái Hải',
       category: 'brand',
       categoryLabel: 'Bộ văn phòng',
-      description: 'Hệ thống nhận diện thương hiệu văn phòng gồm Kẹp file tài liệu, Phong bì thư A4, Thẻ nhân viên khổ A5/A6 mang dấu ấn văn hóa Thái Hải.',
+      description: 'Quy chuẩn văn phòng chuyên nghiệp & nhất quán thương hiệu.',
       meta: {
         type: 'Stationery & Office Kit',
         year: '2026',
@@ -69,11 +69,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3. Dedicated BrandBook Box: images/BrandBook/color up.pdf
     'project-3': {
-      title: 'Bộ Cẩm Nang BrandBook Thái Hải',
+      title: 'BrandBook',
       category: 'brand',
-      categoryLabel: 'Cẩm nang BrandBook',
+      categoryLabel: 'BrandBook',
       pdfUrl: '../images/BrandBook/color up.pdf',
-      description: 'Trọn bộ Cẩm nang nhận diện thương hiệu BrandBook (file PDF color up.pdf 43MB) trình bày chi tiết quy chuẩn hệ thống nhận diện di sản Làng Thái Hải.',
+      description: 'File BrandBook PDF quy chuẩn di sản Thái Hải.',
       meta: {
         type: 'BrandBook Design (PDF)',
         year: '2026',
@@ -88,12 +88,12 @@ document.addEventListener('DOMContentLoaded', () => {
       ]
     },
 
-    // 4. Folder: images/đồng phục & quà tặng (Đồng Phục & Quà Tặng Merchandise)
+    // 4. Folder: images/đồng phục & quà tặng
     'project-4': {
-      title: 'Thiết Kế Đồng Phục & Quà Tặng Merchandise',
+      title: 'Thiết Kế Đồng Phục & Quà Tặng',
       category: 'apparel',
       categoryLabel: 'Đồng phục & Quà tặng',
-      description: 'Bộ sưu tập đồng phục trang phục nam nữ kết hợp hoa văn thổ cẩm và các ấn phẩm quà tặng du lịch (Ly sứ, Mũ thêu, Ô che nắng di sản).',
+      description: 'Đồng phục thổ cẩm & bộ quà tặng du lịch lưu niệm Thái Hải.',
       meta: {
         type: 'Apparel & Merchandise',
         year: '2026',
@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
       category: 'media',
       categoryLabel: 'Ấn phẩm truyền thông',
       isStandee: true,
-      description: 'Trọn bộ ấn phẩm truyền thông quảng cáo Làng Thái Hải gồm Standee khổ dọc thiết kế mới, Poster di sản, Banner digital media và Tờ rơi gấp 3.',
+      description: 'Standee mới, Poster di sản & Banner truyền thông quảng cáo.',
       meta: {
         type: 'Standee & Media Campaign',
         year: '2026',
@@ -137,10 +137,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 6. Separate Catalogue Box: images/Truyền thông quảng cáo/câtlo
     'project-6': {
-      title: 'Bộ Catalogue 15 Trang Nghệ Thuật Thái Hải',
+      title: 'Bộ Catalogue',
       category: 'media',
-      categoryLabel: 'Bộ Catalogue Nghệ Thuật',
-      description: 'Trọn bộ Catalogue 15 trang nghệ thuật độc đáo, trình bày quy chuẩn hệ thống nhận diện di sản Làng Thái Hải.',
+      categoryLabel: 'Bộ Catalogue',
+      description: 'Cẩm nang thương hiệu 15 trang quy chuẩn di sản Thái Hải.',
       meta: {
         type: 'Catalogue Design',
         year: '2026',
@@ -452,9 +452,13 @@ document.addEventListener('DOMContentLoaded', () => {
     currentProjectImages = (data.images && data.images.length > 0) ? data.images : ['../images/Bao bì/mocup 1.jpg'];
     currentImageIndex = 0;
 
-    modalTitle.textContent = data.title || 'Dự Án Vân Tràm';
-    modalCategory.textContent = data.categoryLabel || 'NHẬN DIỆN THƯƠNG HIỆU';
-    modalDesc.textContent = data.description || 'Mô tả tác phẩm thiết kế đồ họa.';
+    const cardTitle = card.querySelector('.project-title')?.textContent.trim();
+    const cardCategory = card.querySelector('.project-category')?.textContent.trim();
+    const cardDesc = card.querySelector('.project-desc')?.textContent.trim();
+
+    modalTitle.textContent = cardTitle || data.title || 'Dự Án Vân Tràm';
+    modalCategory.textContent = cardCategory || data.categoryLabel || 'NHẬN DIỆN THƯƠNG HIỆU';
+    modalDesc.textContent = cardDesc || data.description || 'Mô tả tác phẩm thiết kế đồ họa.';
 
     if (data.meta) {
       metaType.textContent = data.meta.type || 'Brand Identity Design';
