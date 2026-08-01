@@ -4,9 +4,10 @@ color 0A
 title Universal Deploy Tool v2.0
 
 cd /d "%~dp0"
+set GIT_PAGER=cat
 
 ::===========================================
-:: KIỂM TRA GIT
+:: KIEM TRA GIT
 ::===========================================
 
 git rev-parse --is-inside-work-tree >nul 2>&1
@@ -15,7 +16,7 @@ if errorlevel 1 (
     color 0C
     echo.
     echo ==========================================
-    echo    Đây không phải Git Repository!
+    echo    Day khong phai Git Repository!
     echo ==========================================
     echo.
     pause
@@ -55,13 +56,13 @@ echo [2] Deploy (deploy.js)
 )
 
 echo [3] Git Add + Commit + Push
-echo [4] Git Pull
+echo [4] Git Pull (Xem Commit ^& Nguoi Sua)
 echo [5] Git Status
 echo [6] Build + Deploy + Push
 echo [0] Exit
 
 echo.
-set /p choice=Chọn:
+set /p choice=Chon:
 
 if "%choice%"=="1" goto BUILD
 if "%choice%"=="2" goto DEPLOY
@@ -83,7 +84,7 @@ cls
 
 if not exist pom.xml (
 echo.
-echo Không phải Maven Project.
+echo Khong phai Maven Project.
 pause
 goto MENU
 )
@@ -122,7 +123,7 @@ cls
 
 if not exist deploy.js (
 echo.
-echo Không tìm thấy deploy.js
+echo Khong tim thay deploy.js
 pause
 goto MENU
 )
@@ -197,8 +198,34 @@ goto MENU
 
 cls
 
+echo.
+echo ===============================================
+echo        GIT PULL - KIEM TRA ^& CAP NHAT CODE
+echo ===============================================
+echo.
+
+echo [1/3] Dang kiem tra du lieu moi tu Server (git fetch)...
+git fetch
+
+echo.
+echo ===============================================
+echo [2/3] CAC COMMIT MOI TREN REMOTE (NEU CO):
+echo ===============================================
+git --no-pager log HEAD..@{u} --stat -n 5 2>nul
+
+echo.
+echo ===============================================
+echo [3/3] DANG TIEN HANH GIT PULL...
+echo ===============================================
 git pull
 
+echo.
+echo ===============================================
+echo LICH SU 5 COMMIT MOI NHAT (NGUOI SUA ^& FILE THAY DOI):
+echo ===============================================
+git --no-pager log -n 5 --stat
+
+echo.
 pause
 goto MENU
 
@@ -210,7 +237,7 @@ goto MENU
 
 cls
 
-git status
+git --no-pager status
 
 pause
 goto MENU
