@@ -327,12 +327,12 @@
           </div>
         </article>
 
-        <!-- Box 3: Folder 'Bao bì' (Hộp Quà & Nhãn Mác) -->
-        <article class="project-card glass-card" data-project-id="project-3" data-category="packaging"
-          data-img="../images/Bao bì/9.png" data-title="Bộ Nhận Diện Hộp Quà & Nhãn Mác Thái Hải"
-          data-desc="Thiết kế nhãn mác sản phẩm và hộp quà tặng cao cấp di sản Làng Thái Hải.">
+        <!-- Box 3: Dedicated BrandBook Box -->
+        <article class="project-card glass-card" data-project-id="project-3" data-category="brand"
+          data-img="../images/Bao bì/9.png" data-title="Bộ Cẩm Nang BrandBook Thái Hải"
+          data-desc="Trọn bộ Cẩm nang nhận diện thương hiệu BrandBook (file PDF color up.pdf 43MB) trình bày chi tiết quy chuẩn nhận diện di sản Làng Thái Hải.">
           <div class="project-thumb">
-            <img src="../images/Bao bì/9.png" alt="Bộ Nhận Diện Hộp Quà & Nhãn Mác Thái Hải" loading="lazy">
+            <img src="../images/Bao bì/9.png" alt="Bộ Cẩm Nang BrandBook Thái Hải" loading="lazy">
             <div class="project-overlay">
               <div class="view-btn-icon">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -343,10 +343,10 @@
           </div>
           <div class="project-info">
             <div>
-              <span class="project-category">Brand Book</span>
-              <h3 class="project-title">Brand Book</h3>
+              <span class="project-category">Cẩm nang BrandBook</span>
+              <h3 class="project-title">Bộ Cẩm Nang BrandBook Thái Hải</h3>
             </div>
-            <p class="project-desc">Sản phẩm bao bì cao cấp & đậm đà nét văn hóa di sản.</p>
+            <p class="project-desc">File BrandBook PDF (color up.pdf) quy chuẩn di sản Thái Hải.</p>
           </div>
         </article>
 
@@ -398,10 +398,10 @@
           </div>
         </article>
 
-        <!-- Box 6: Separate Catalogue Box (15 Trang Nghệ Thuật) -->
+        <!-- Box 6: Separate Catalogue Box -->
         <article class="project-card glass-card" data-project-id="project-6" data-category="media"
           data-img="../images/Truyền thông quảng cáo/câtlo/1.png" data-title="Bộ Catalogue 15 Trang Nghệ Thuật Thái Hải"
-          data-desc="Trọn bộ Catalogue Cẩm nang thương hiệu 15 trang nghệ thuật độc đáo, trình bày quy chuẩn hệ thống nhận diện di sản Làng Thái Hải.">
+          data-desc="Trọn bộ Catalogue 15 trang nghệ thuật độc đáo, trình bày quy chuẩn hệ thống nhận diện di sản Làng Thái Hải.">
           <div class="project-thumb">
             <img src="../images/Truyền thông quảng cáo/câtlo/1.png" alt="Bộ Catalogue 15 Trang Nghệ Thuật Thái Hải"
               loading="lazy">
@@ -415,8 +415,8 @@
           </div>
           <div class="project-info">
             <div>
-              <span class="project-category">Bộ Catalogue Brandbook</span>
-              <h3 class="project-title">Bộ Catalogue 15 Trang Nghệ Thuật Thái Hải</h3>
+              <span class="project-category">Bộ Catalogue</span>
+              <h3 class="project-title">Bộ Catalogue</h3>
             </div>
             <p class="project-desc">Cẩm nang thương hiệu 15 trang quy chuẩn di sản Thái Hải.</p>
           </div>
@@ -626,8 +626,13 @@
       <!-- Close Button X -->
       <button class="modal-close-btn" id="modalCloseBtn" aria-label="Đóng cửa sổ showcase">&times;</button>
 
-      <!-- Left Column: Slideshow Area -->
+      <!-- Left Column: Slideshow Area or PDF Viewer -->
       <div class="modal-slideshow-col">
+        <!-- Interactive PDF Viewer for BrandBook -->
+        <div class="pdf-viewer-wrapper" id="modalPdfViewerWrapper" style="display: none; width: 100%; height: 100%; min-height: 540px; background: #1a1a1a;">
+          <iframe id="modalPdfIframe" src="" style="width: 100%; height: 100%; min-height: 540px; border: none;" title="BrandBook PDF Reader"></iframe>
+        </div>
+
         <div class="slideshow-container" id="slideshowContainer">
           <!-- Main Display Image -->
           <div class="slideshow-image-wrapper">
@@ -679,6 +684,12 @@
             <span class="meta-value" id="metaConcept">Hồn Việt Di Sản</span>
           </div>
         </div>
+
+        <!-- PDF Direct View Link (Hiển thị khi mở Box 3 BrandBook) -->
+        <a href="../images/BrandBook/color up.pdf" target="_blank" class="btn btn-primary modal-pdf-btn" id="modalPdfBtn" style="display: none; align-items: center; justify-content: center; gap: 0.6rem; margin-top: 1.2rem; background: #8d1e1f; color: #ffffff; padding: 0.9rem 1.4rem; border-radius: var(--radius-md); text-decoration: none; font-weight: 700; font-size: 0.98rem; box-shadow: 0 6px 20px rgba(141,30,31,0.35); border: 1px solid var(--accent-gold);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          <span>Đọc File BrandBook PDF (color up.pdf)</span>
+        </a>
 
         <!-- Action CTA Button -->
         <a href="#contact" class="btn btn-primary modal-cta-btn" id="modalContactBtn">

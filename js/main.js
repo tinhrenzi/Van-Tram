@@ -67,17 +67,18 @@ document.addEventListener('DOMContentLoaded', () => {
       ]
     },
 
-    // 3. Folder: images/Bao bì (Bộ Nhận Diện Hộp Quà & Nhãn Mác)
+    // 3. Dedicated BrandBook Box: images/BrandBook/color up.pdf
     'project-3': {
-      title: 'Bộ Nhận Diện Hộp Quà & Nhãn Mác Thái Hải',
-      category: 'packaging',
-      categoryLabel: 'Bao bì & Hộp quà',
-      description: 'Thiết kế nhãn mác sản phẩm và hộp quà tặng cao cấp di sản Làng Thái Hải.',
+      title: 'Bộ Cẩm Nang BrandBook Thái Hải',
+      category: 'brand',
+      categoryLabel: 'Cẩm nang BrandBook',
+      pdfUrl: '../images/BrandBook/color up.pdf',
+      description: 'Trọn bộ Cẩm nang nhận diện thương hiệu BrandBook (file PDF color up.pdf 43MB) trình bày chi tiết quy chuẩn hệ thống nhận diện di sản Làng Thái Hải.',
       meta: {
-        type: 'Gift Box & Label Design',
+        type: 'BrandBook Design (PDF)',
         year: '2026',
-        tools: 'Adobe Illustrator, Photoshop',
-        concept: 'Premium Packaging'
+        tools: 'Adobe InDesign, Illustrator (color up.pdf)',
+        concept: 'Heritage BrandBook'
       },
       images: [
         '../images/Bao bì/9.png',
@@ -138,10 +139,10 @@ document.addEventListener('DOMContentLoaded', () => {
     'project-6': {
       title: 'Bộ Catalogue 15 Trang Nghệ Thuật Thái Hải',
       category: 'media',
-      categoryLabel: 'Bộ Catalogue Brandbook',
-      description: 'Trọn bộ Catalogue Cẩm nang thương hiệu 15 trang nghệ thuật độc đáo, trình bày quy chuẩn hệ thống nhận diện di sản Làng Thái Hải.',
+      categoryLabel: 'Bộ Catalogue Nghệ Thuật',
+      description: 'Trọn bộ Catalogue 15 trang nghệ thuật độc đáo, trình bày quy chuẩn hệ thống nhận diện di sản Làng Thái Hải.',
       meta: {
-        type: 'Catalogue & Brandbook Design',
+        type: 'Catalogue Design',
         year: '2026',
         tools: 'Adobe InDesign, Illustrator',
         concept: 'Heritage Catalogue'
@@ -462,6 +463,33 @@ document.addEventListener('DOMContentLoaded', () => {
       metaConcept.textContent = data.meta.concept || 'Hồn Việt Di Sản';
     }
 
+    // Handle Interactive PDF Viewer vs Image Slideshow
+    const pdfWrapper = document.getElementById('modalPdfViewerWrapper');
+    const pdfIframe = document.getElementById('modalPdfIframe');
+    const slideshowContainer = document.getElementById('slideshowContainer');
+    const pdfBtn = document.getElementById('modalPdfBtn');
+
+    if (data.pdfUrl) {
+      if (pdfWrapper && pdfIframe && slideshowContainer) {
+        pdfWrapper.style.display = 'block';
+        pdfIframe.src = data.pdfUrl + '#toolbar=1&view=FitH';
+        slideshowContainer.style.display = 'none';
+      }
+      if (pdfBtn) {
+        pdfBtn.href = data.pdfUrl;
+        pdfBtn.style.display = 'flex';
+      }
+    } else {
+      if (pdfWrapper && pdfIframe && slideshowContainer) {
+        pdfWrapper.style.display = 'none';
+        pdfIframe.src = '';
+        slideshowContainer.style.display = 'block';
+      }
+      if (pdfBtn) {
+        pdfBtn.style.display = 'none';
+      }
+    }
+
     renderDots(currentProjectImages.length);
     updateSlideshowUI(0);
 
@@ -474,6 +502,8 @@ document.addEventListener('DOMContentLoaded', () => {
     lightboxModal.classList.remove('active');
     lightboxModal.setAttribute('aria-hidden', 'true');
     showcaseModalCard.classList.remove('is-standee-modal');
+    const pdfIframe = document.getElementById('modalPdfIframe');
+    if (pdfIframe) pdfIframe.src = '';
     document.body.style.overflow = '';
   };
 
